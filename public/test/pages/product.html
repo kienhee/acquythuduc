@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
+  <link rel="stylesheet" href="/src/assets/css/main.css">
+  <!-- <link rel="preload" href="https://maps.gstatic.com/maps-api-v3/embed/js/56/4/intl/vi_ALL/init_embed.js" -->
+  <!-- nonce="p63S8D8MTBW__TbE7-z6-Q" as="script" /> -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        },
+        screens: {
+          'phone': {'min': '375px', 'max': '570px'},
+          's-phone': { 'max': '450px' },
+          'tablet': { 'max': '690px' },
+          // => @media (min-width: 640px) { ... }
+
+          'laptop': { 'min': '690px', 'max': '990px' },
+          // => @media (min-width: 1024px) { ... }
+
+          'desktop': { 'min': '990px', 'max': '1280px ' },
+          // => @media (min-width: 1280px) { ... }
+        },
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="root">
+    <!-- Header -->
+    <header
+      class="transition-all duration-200 ease-in relative top-0 right-0 left-0 w-full max-h-[116px] tablet:max-h-full z-[9999]"
+      id="header">
+      <div class="absolute top-0 z-10 w-full h-full bg-white tablet:hidden"></div>
+      <div
+        class="relative z-20 w-full tablet:!bg-gradient-to-b tablet:!from-[#f25d19] tablet:!to-[#fad327] header-container">
+        <div
+          class="max-w-[1500px] tablet:block w-full mx-auto header-flex layout-container py-1 px-[2rem] laptop:px-[1rem] h-full flex items-start">
+
+          <div id="logo" onclick="goHome()" class="logo w-2/5 max-[700px]:w-[45%] tablet:w-full pt-[0.5rem] cursor-pointer">
+            <img class=" tablet:hidden logo-img laptop:h-[3.8rem] h-[4rem] w-[100%]" width="1070" height="144"
+              src="/src/assets/images/logo.98b96fdb.png" alt="">
+            <img class="tablet:h-16 s-phone:!px-1 s-phone:!w-full hidden tablet:block tablet:mx-auto tablet:w-[80%]"
+              src="/src/assets/images/logo-footer.4cc7d107 (1).png" alt="">
+          </div>
+          <div class="flex-1 w-3/5 pl-20 tablet:pl-0 desktop:pl-16 laptop:pl-16 tablet:w-full">
+            <div class="flex s-phone:!flex-col s-phone:!gap-2 items-center gap-4 pt-2 laptop:gap-2 tablet:gap-8 tablet:pt-3 tablet:pb-3 header-info">
+              <div id="hotline" class="flex items-center gap-2 tablet:gap-1 laptop:gap-1 ">
+                <svg class="w-6 h-6 s-phone:w-4 s-phone:h-4 laptop:w-5 laptop:h-5 s-laptop:w-5 s-laptop:h-5" xmlns="http://www.w3.org/2000/svg"
+                  width="24" height="24" viewBox="0 0 32 32" fill="none">
+                  <path
+                    d="M15.9998 2.66663C8.64784 2.66663 2.6665 8.64796 2.6665 16V21.524C2.6665 22.8893 3.8625 24 5.33317 24H6.6665C7.02013 24 7.35926 23.8595 7.60931 23.6094C7.85936 23.3594 7.99984 23.0202 7.99984 22.6666V15.8093C7.99984 15.4557 7.85936 15.1165 7.60931 14.8665C7.35926 14.6164 7.02013 14.476 6.6665 14.476H5.45584C6.19717 9.31596 10.6372 5.33329 15.9998 5.33329C21.3625 5.33329 25.8025 9.31596 26.5438 14.476H25.3332C24.9795 14.476 24.6404 14.6164 24.3904 14.8665C24.1403 15.1165 23.9998 15.4557 23.9998 15.8093V24C23.9998 25.4706 22.8038 26.6666 21.3332 26.6666H18.6665V25.3333H13.3332V29.3333H21.3332C24.2745 29.3333 26.6665 26.9413 26.6665 24C28.1372 24 29.3332 22.8893 29.3332 21.524V16C29.3332 8.64796 23.3518 2.66663 15.9998 2.66663Z"
+                    fill="white" />
+                </svg>
+                <p 
+                  class="text-2xl font-semibold tracking-wider text-white laptop:text-base desktop:text-xl phone tablet:text-sm num-hotline">
+                  HOTLINE: 0796 39 58 68 </p>
+
+              </div>
+              <div class="bg-white flex-1 flex items-center w-full rounded px-[11px] py-1">
+                <span class="flex items-center w-5 h-5">
+                  <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 25 25"
+                    fill="none">
+                    <g clip-path="url(#clip0_42_1419)">
+                      <path
+                        d="M24.6849 23.2094L17.512 16.0314C18.9261 14.3355 19.7766 12.1683 19.7766 9.80122C19.7766 4.40107 15.3448 0.0102539 9.89343 0.0102539C4.44205 0.0102539 0 4.4062 0 9.80634C0 15.2065 4.43181 19.5973 9.88318 19.5973C12.199 19.5973 14.3304 18.8032 16.0211 17.4762L23.2196 24.6747C23.6397 25.0948 24.2648 25.0948 24.6849 24.6747C25.105 24.2545 25.105 23.6295 24.6849 23.2094ZM2.10063 9.80634C2.10063 5.5641 5.59484 2.116 9.88318 2.116C14.1715 2.116 17.6657 5.5641 17.6657 9.80634C17.6657 14.0486 14.1715 17.4967 9.88318 17.4967C5.59484 17.4967 2.10063 14.0435 2.10063 9.80634Z"
+                        fill="#8A4D04" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_42_1419">
+                        <rect width="25" height="25" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+
+                <input class="w-full tablet:leading-3 text-[14px] outline-none leading-[1.57]" placeholder="Tìm kiếm"
+                  type="text">
+              </div>
+            </div>
+            <div class="nav-pages">
+              <ul id="routers"
+                class="flex mx-auto tablet:pt-[0.5rem] pt-4 w-11/12 laptop:w-full pb-[0.75rem] items-center justify-between">
+                <!-- Routers Render By JS (/script/Header.js) -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </header>
+    <!-- Header -->
+
+    <div id="container">
+      <!-- Slider -->
+      <section id="slider-container" class="swiper mySwiper mb-[3rem]">
+        <div id="slider" class="swiper-wrapper">
+          <!-- Render Slider Item by JS (/script/Slider.js) -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </section>
+      <!-- Slider -->
+
+      <div class="flex tablet:block px-[1rem] max-w-[1500px] mx-auto gap-9 mb-[3rem] tablet:px-2">
+        <div class="flex-1">
+          <div
+            class="text-[#8a4d04] tablet:text-lg text-2xl flex items-center border-b-[1px] border-b-[#8a4d04] pb-4 mb-10 tablet:mb-5">
+            <p class=""><span class="text-xl laptop:text-lg tablet:text-lg">SẢN PHẨM</span> <span class="px-2">/</span> <span
+                class="font-semibold laptop:text-lg">BÌNH ẮC QUY NS60LS (12V - 45AH)</span></p>
+          </div>
+          <div class="flex gap-10 mb-20 laptop:block tablet:block">
+            <div
+              class="w-1/2 transition-all duration-150 ease-in cursor-pointer laptop:mb-5 laptop:w-full tablet:mb-5 tablet:w-full hover:opacity-75">
+              <img src="/src/assets/images/product-item-1.jpg" alt="">
+            </div>
+            <div class="flex-1 w-full">
+              <div class="mb-10">
+                <div class="px-6 py-3 phone:text-base laptop:text-lg tablet:text-lg bg-[#fff1b1] text-[#8a4d04] text-xl flex">
+                  <p class="w-5/12">Mã sản phẩm:</p>
+                  <p>ẮC QUY GS NS60LS</p>
+                </div>
+                <div class="px-6 py-3 phone:text-base laptop:text-lg tablet:text-lg text-[#8a4d04] text-xl flex">
+                  <p class="w-5/12">Hãng sản xuất:</p>
+                  <p>GS Battery VietNam</p>
+                </div>
+                <div class="px-6 py-3 phone:text-base laptop:text-lg tablet:text-lg bg-[#fff1b1] text-[#8a4d04] text-xl flex">
+                  <p class="w-5/12">Tình trạng hàng:</p>
+                  <p>Mới 100%</p>
+                </div>
+                <div class="px-6 py-3 phone:text-base laptop:text-lg tablet:text-lg text-[#8a4d04] text-xl flex">
+                  <p class="w-5/12">Xuất xứ:</p>
+                  <p>Việt Nam</p>
+                </div>
+                <div class="px-6 py-3 phone:text-base laptop:text-lg tablet:text-lg bg-[#fff1b1] text-[#8a4d04] text-xl flex">
+                  <p class="w-5/12">Bảo hành:</p>
+                  <p>6 tháng</p>
+                </div>
+                <div class="px-6 py-3 phone:text-base laptop:text-lg tablet:text-lg text-[#8a4d04] text-xl flex">
+                  <p class="w-5/12">Kích thước:</p>
+                  <p>238*129*202</p>
+                </div>
+                <div class="px-6 py-3 phone:text-base tablet:text-lg bg-[#fff1b1] text-[#8a4d04] text-xl flex">
+                  <p class="w-5/12">Liên hệ:</p>
+                  <p>0796 39 58 68 (Mr. Đồng)</p>
+                </div>
+              </div>
+              <div class="flex justify-end">
+                <button class="py-3 laptop:text-lg text-xl tablet:text-lg rounded text-[#fff] px-16 bg-gradient-to-b from-[#f25d19] to-[#fad327]">LIÊN
+                  HỆ</button>
+              </div>
+
+            </div>
+
+          </div>
+          <div>
+            <div data-ui-tablist="ui-tabs" class="tabs px-14 border-b-[1px] s-phone:px-2 border-[#8a4d04]">
+              <button data-ui-tablist-tab="log-in" class="tabs-tab laptop:text-lg s-phone:!px-4 phone:text-base tablet:text-lg text-xl text-[#8a4d04] px-8 py-3 ">Mô
+                tả sản phẩm</button>
+              <button data-ui-tablist-tab="sign-up" class="tabs-tab laptop:text-lg s-phone:!px-4 phone:text-base tablet:text-lg text-xl text-[#8a4d04] px-8 py-3 ">Hình
+                ảnh/Video</button>
+            </div>
+            <div id="log-in" class="p-4 tabs-tabpanel auth-form">
+              <div class="mb-5 text-base text-justify">
+                <div>
+                  <div>- <span style="color: rgb(41, 105, 176);"><strong>GS BATTERY</strong></span> là Công ty 100% vốn
+                    nước ngoài liên doanh giữa Tập đoàn GS – YUASA và Tập đoàn MITSUBISHI – Tập đoàn thương mại lớn nhất
+                    Nhật Bản.<br>- <span style="color: rgb(41, 105, 176);">Bình ắc quy GS</span> được sản xuất
+                    tại Việt Nam trên dây chuyền công nghệ hiện đại của Nhật Bản.<br>- <span
+                      style="color: rgb(41, 105, 176);">Ắc quy GS</span> được người tiêu dùng lựa chọn và tin dùng, nên
+                    thị trường hơn hẳn các thương hiệu bình ắc quy khác tại Việt
+                    Nam như: ắc quy PINACO, ắc quy ĐỒNG NAI, ắc quy ENIMAC, ắc quy TROY, SCB, GLOBE...<br>- Sản phẩm
+                    bình ắc quy GS đa dạng, đáp ứng được nhu cầu của thị trường Việt Nam, cung cấp ắc quy cho xe ô tô,
+                    xe tải, tàu thuyền, máy
+                    phát phát điện, xe gắn máy...<br>- Ở thời điểm hiện tại, Công ty ắc quy GS Việt Nam sản xuất các
+                    chủng loại bình ắc quy sau:<br>&nbsp;+ Bình ắc quy dùng cho khởi động động cơ theo công nghệ chì
+                    - axit nước truyền thống.<br>&nbsp;+ Bình ắc quy dùng cho khởi động động cơ theo công nghệ chì -
+                    axit kín khí miễn bảo dưỡng (MF – Maintenance Free).<br>&nbsp;+ Bình ắc quy dùng cho khởi động động
+                    cơ
+                    theo công nghệ chì - axit (HYBRID).&nbsp;<br>&nbsp;+ Bình ắc quy dùng cho chuyên dụng xả sâu (kích
+                    điện, chiếu sáng...) theo công nghệ chì - axi nước truyền thống.&nbsp;<br>- Ngoài ra, GS
+                    Việt Nam còn nhập thêm 2 sản phẩm mới từ Thái lan: GS Q85 (12V-65AH_620CCA) cho các dòng xe có chức
+                    năng Start Stop như Mazda và GS AGM LN4 DIN80L (12V-80AH) cho các dòng xe, Mercedes, Audi, BMW...
+                    &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+                  <div>- Bình ắc quy <strong><span style="color: rgb(41, 105, 176);">BÌNH ẮC QUY GS NS60LS (12V -
+                        45AH)</span></strong> được dùng cho các dòng xe ô tô như: Toyota Corolla Altis, Toyota Vios,
+                    Toyota Yaris, Toyota Yaris Cross, Toyota Corolla Cross, Toyota Innova trước 2016, Mazda 2S, Honda
+                    Civic, Honda CR-V, Honda HR-V, Honda Accord, Honda BR-V, Honda ZR-V, Honda Mobilio, Honda Passport,
+                    Kia Soluto …
+                    <br>
+                    <div>- Ưu điểm của bình ắc quy <span style="color: rgb(41, 105, 176);"><strong>BÌNH ẮC QUY GS NS60LS
+                          (12V - 45AH)</strong></span> cho người dùng:&nbsp;<br>&nbsp;+ Tiện lợi khi sử dụng, không cần
+                      bảo dưỡng, thân thiện với môi trường hơn bình
+                      ắc quy nước truyền thống.&nbsp;<br>&nbsp;+ An toàn khi sử dụng, hạn chế thấp nhất dung dịch axit
+                      rò rỉ ra bên ngoài, không làm ảnh hưởng đến thân vỏ ô tô.&nbsp;<br>&nbsp;+ Dung lượng đạt chuẩn
+                      giúp
+                      xe khởi động nhanh hơn, mạnh hơn, an toàn hơn.&nbsp;<br>&nbsp;+ Tính năng và kết cấu của bình ắc
+                      quy phù hợp với điều kiện khí hậu tại Việt Nam.&nbsp;<br>&nbsp;+ Đầu cự ắc quy được sử dụng một
+                      lớp mỡ mỏng giúp chống
+                      oxi hóa, chống đổi màu đầu cực và có nút nhựa bảo vệ.<br>&nbsp;+ Vỏ bình nhựa cấu tạo bởi vật liệu
+                      PP cứng, có độ bền và khả năng chống rung, chống phù, chịu nhiệt tốt.</div>
+                  </div>
+                  <div>+ Giá thành cạnh tranh hơn các sản phẩm bình ắc quy nhập khẩu khác cùng phân khúc về chất
+                    lượng.&nbsp;<br> + Chính sách bảo hành <strong>6 tháng</strong> nhưng tuổi thọ sử dụng
+                    lâu bền lên đến <strong>24 tháng</strong>. Và đây cũng chính là lý do người tiêu dùng tin tưởng lựa
+                    chọn thương hiệu ắc quy GS.</div>
+
+
+                  <div>- Tìm mua bình ắc quy<strong><span style="color: rgb(44, 130, 201);">&nbsp;BÌNH ẮC QUY GS NS60LS
+                        (12V - 45AH)&nbsp;</span></strong>ở đâu?<br>Cửa hàng&nbsp;<span
+                      style="color: rgb(250, 197, 28);"><strong>ẮC QUY THỦ ĐỨC</strong></span> là
+                    đơn vị uy tín được&nbsp;<span style="color: rgb(44, 130, 201);"><strong>GS Battery
+                        VietNam</strong></span> lựa chọn làm đại lý phân phối sỉ và lẻ tại TP. Thủ Đức, TP
+                    HCM.<br>&nbsp;+ Hàng chính
+                    hãng, có hóa đơn VAT, đầy đủ chứng nhận tiêu chuẩn nhà sản xuất.&nbsp;<br>&nbsp;+ Hàng nhập mới
+                    100%, đầy đủ tem phiếu bảo hành chính hãng của nhà sản xuất.&nbsp;<br>&nbsp;+ Có đội ngũ
+                    nhân viên làm việc nhiệt tình, thân thiện và nhiều năm kinh nghiệm trong lĩnh vực tháo lắp ắc quy
+                    cho các dòng xe cao cấp… &nbsp;<br>&nbsp;+ Giao hàng nhanh chóng tận nơi, lắp đặt
+                    miễn phí 24/7 (Quý khách chỉ cần chờ 30 phút khi đặt hàng).<br>&nbsp;+ Bảo hành tận nơi, miễn phí -
+                    đổi mới nếu sản phẩm bị lỗi do sản xuất.&nbsp;<br>&nbsp;+ Cam kết giá tốt nhất thị trường vì chúng
+                    tôi là đơn vị phân phối chính thức không qua bất kỳ trung gian nào.&nbsp;<br>&nbsp;+ Có hệ thống chi
+                    nhánh và đại lý khắp các tỉnh thành trên cả nước.&nbsp;<br>- Bạn sẽ hài
+                    lòng khi mua sản phẩm bình ắc quy và sử dụng dịch vụ tại&nbsp;<span
+                      style="color: rgb(250, 197, 28);"><strong>THỦ ĐỨC BATTERY</strong></span>. &nbsp;<br>-
+                    <strong><span style="color: rgb(250, 197, 28);">THỦ ĐỨC BATTERY</span></strong> với cam
+                    kết:&nbsp;<strong>
+                      <span style="color: rgb(41, 105, 176);">CHẤT LƯỢNG HÀNG ĐẦU - GIÁ CẢ PHẢI CHĂNG - DỊCH VỤ HOÀN
+                        HẢO</span></strong>. &nbsp; &nbsp; &nbsp;<br>- Để biết thêm chi tiết Quý khách hàng vui lòng
+                    liên hệ: &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;<br>&nbsp;+ ĐT:<strong><span style="color: rgb(250, 197, 28);">&nbsp;093 66 97
+                        139</span></strong> &nbsp;<br>&nbsp;+ Hotline:&nbsp;<strong><span
+                        style="color: rgb(250, 197, 28);">0796 39 58 68</span>&nbsp;<br></strong>để được tư vấn về kỹ
+                    thuật lắp ắc quy cho các dòng xe cao cấp có mặt tại thị trường Việt Nam. &nbsp; &nbsp; &nbsp;
+                    &nbsp;<br>* Mọi
+                    đóng góp ý kiến phản hồi về chất lượng sản phẩm cũng như dịch vụ rất mong quý khách hàng liên hệ
+                    <span style="color: rgb(250, 197, 28);"><strong>ĐT: 0796 39 58 68 Mr. Đồng</strong></span> (mỗi đóng
+                    góp của Quý khách hàng là tài sản quý giá dành cho công ty chúng tôi).
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div id="sign-up" class="tabs-tabpanel auth-form" hidden>
+              <img src="/src/assets/images/product-item-1.jpg" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="w-1/4 tablet:w-full max-w-1/4 laptop:w-1/3 laptop:max-w-1/3">
+          <!-- Category -->
+          <div class="rounded border-[1px] w-full shadow-md mb-7">
+            <div class="text-[#8a4d04] bg-[#ffeea4] font-semibold border-b-[1px] px-4 py-3 text-center">
+              <p class="text-xl laptop:text-lg tablet:text-lg">DANH MỤC SẢN PHẨM</p>
+            </div>
+            <div>
+              <button data-ui-toggle="my-collapse-1"
+                class="flex justify-between tablet:text-sm laptop:text-sm items-center w-full p-3 border-b-[1px]">
+                ẮC QUY NỘI ĐỊA
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+              <div data-ui-collapse data-ui-transition-name="collapse" id="my-collapse-1" shown>
+                <div class="collapse-content tablet:text-sm laptop:text-sm p-4 border-b-[1px]">
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS KHÔ</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS NƯỚC</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS XE MÁY</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS KHÔ</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS NƯỚC</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS XE MÁY</p>
+                </div>
+              </div>
+
+              <button data-ui-toggle="my-collapse-2"
+                class="flex justify-between laptop:text-sm tablet:text-sm items-center w-full p-3 border-b-[1px]">
+                ẮC QUY NỘI ĐỊA
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+              <div data-ui-collapse data-ui-transition-name="collapse" id="my-collapse-2" shown>
+                <div class="collapse-content tablet:text-sm laptop:text-sm p-4 border-b-[1px]">
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS KHÔ</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS NƯỚC</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS XE MÁY</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS KHÔ</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS NƯỚC</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS XE MÁY</p>
+                </div>
+              </div>
+
+              <button data-ui-toggle="my-collapse-3"
+                class="flex tablet:text-sm justify-between laptop:text-sm items-center w-full p-3 border-b-[1px]">
+                ẮC QUY NỘI ĐỊA
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+              <div data-ui-collapse data-ui-transition-name="collapse" id="my-collapse-3" shown>
+                <div class="collapse-content laptop:text-sm tablet:text-sm p-4 border-b-[1px]">
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS KHÔ</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS NƯỚC</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS XE MÁY</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS KHÔ</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS NƯỚC</p>
+                  <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded">ẮC QUY GS XE MÁY</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Category -->
+
+          <!-- New Product -->
+          <div class="rounded border-[1px] w-full shadow-md tablet:mb-10">
+            <div class="text-[#8a4d04] bg-[#ffeea4] font-semibold border-b-[1px] px-4 py-3 text-center">
+              <p class="text-xl laptop:text-lg tablet:text-lg">SẢN PHẨM MỚI NHẤT</p>
+            </div>
+            <div>
+              <div onclick="navigate()"
+                class="flex items-center w-full gap-4 p-3 duration-150 bg-white border-b border-solid cursor-pointer hover:bg-gray-200">
+                <div class="w-1/3 tablet:flex-none tablet:w-1/3">
+                  <img class="border-[1px]" src="/src/assets/images/ẮC QUY SEBANG SMF 44B19L.jpg" alt="">
+                </div>
+                <div class="text-[#8a4d04]">
+                  <p class="">ẮC QUY SEBANG AGM LN5</p>
+                  <span>(12V - 92AH)</span>
+                </div>
+              </div>
+              <div onclick="navigate()"
+                class="flex items-center w-full gap-4 p-3 duration-150 bg-white border-b border-solid cursor-pointer hover:bg-gray-200">
+                <div class="w-1/3 tablet:flex-none tablet:w-1/3">
+                  <img class="border-[1px]" src="/src/assets/images/ẮC QUY SEBANG SMF 44B19L.jpg" alt="">
+                </div>
+                <div class="text-[#8a4d04]">
+                  <p class="">ẮC QUY SEBANG AGM LN5</p>
+                  <span>(12V - 92AH)</span>
+                </div>
+              </div>
+              <div onclick="navigate()"
+                class="flex items-center w-full gap-4 p-3 duration-150 bg-white border-b border-solid cursor-pointer hover:bg-gray-200">
+                <div class="w-1/3 tablet:flex-none tablet:w-1/3">
+                  <img class="border-[1px]" src="/src/assets/images/ẮC QUY SEBANG SMF 44B19L.jpg" alt="">
+                </div>
+                <div class="text-[#8a4d04]">
+                  <p class="">ẮC QUY SEBANG AGM LN5</p>
+                  <span>(12V - 92AH)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- New Product -->
+        </div>
+      </div>
+
+
+
+      <!-- Đối tác -->
+      <section class="max-w-[1500px] mx-auto mb-[3rem] px-[1rem]">
+
+        <div class="flex items-center justify-center w-3/4 s-phone:!gap-1 s-phone:!w-full gap-3 mx-auto mb-10 tablet:w-full">
+          <img class="w-2/5" src="/src/assets/images/img-title.32428066.png" alt="">
+          <p class="text-[24px] s-phone:!text-sm  laptop:text-xl tablet:text-lg text-[#8a4d04] phone:!text-base text-center font-bold">ĐỐI TÁC</p>
+          <img class="w-2/5" src="/src/assets/images/img-title.32428066.png" alt="">
+        </div>
+        <div class="w-full">
+          <div class="slider">
+            <ul id="partners" class="slider-list">
+              <!-- <li class="slider-item">
+                <img src="https://source.unsplash.com/random/960x540/?1,landscape" />
+              </li>
+              <li class="slider-item">
+                <img src="https://source.unsplash.com/random/960x540/?2,landscape" />
+              </li>
+              <li class="slider-item">
+                <img src="https://source.unsplash.com/random/960x540/?3,landscape" />
+              </li>
+              <li class="slider-item">
+                <img src="https://source.unsplash.com/random/960x540/?4,landscape" />
+              </li>
+              <li class="slider-item">
+                <img src="https://source.unsplash.com/random/960x540/?5,landscape" />
+              </li>
+              <li class="slider-item">
+                <img src="https://source.unsplash.com/random/960x540/?6,landscape" />
+              </li> -->
+            </ul>
+            <!--   <button class="action-button left-chevron" data-toggle="slider-action" data-direction="prev">
+              &lsaquo;
+            </button>
+            <button class="action-button right-chevron" data-toggle="slider-action" data-direction="next">
+              &rsaquo;
+            </button>  -->
+          </div>
+        </div>
+      </section>
+      <!-- Đối tác -->
+
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="px-[2rem] pt-[2.5rem] pb-[1.5rem] tablet:px-[1rem] phone:px-[0.5rem]" id="footer">
+      <div class="max-w-[1500px] mx-auto">
+        <div class="flex items-start w-full gap-4 tablet:mb-5 phone:block">
+          <div class="max-w-[50%] tablet:max-w-[60%] phone:!max-w-full">
+            <div class="">
+              <img class="mb-4" src="/src/assets/images/logo-footer.4cc7d107.png" alt="">
+            </div>
+            <div id="contacts">
+              <!-- Render by JS (/script/Footer.js) -->
+            </div>
+          </div>
+          <div class="max-w-[25%] flex-[0_0_25%] laptop:flex-1 laptop:max-w-full phone:hidden tablet:flex-1 mb-10 tablet:max-w-full">
+            <div class="w-4/5 mx-auto">
+              <h3 class="mb-4 text-[20px] desktop:text-lg text-xl laptop:text-lg tablet:text-sm text-white font-bold">
+                DANH MỤC SẢN PHẨM
+              </h3>
+              <div id="categories">
+                <!-- Render by JS (/script/Footer.js) -->
+              </div>
+            </div>
+          </div>
+          <div class="tablet:hidden laptop:hidden">
+            <h3 class="mb-4 text-[20px] desktop:text-lg text-white font-bold">BẢN ĐỒ</h3>
+            <div class="flex flex-row wrap">
+              <div class="flex h-56 ant-col ant-col-xs-10 ant-col-sm-10 ant-col-md-10 ant-col-lg-8 css-txh9fw">
+                <img class="object-cover w-full h-full" src="/src/assets/images/imgHouse.bcd13c8f.jpg" alt="">
+              </div>
+              <div class="ant-col ant-col-xs-14 ant-col-sm-14 ant-col-md-14 ant-col-lg-16 css-txh9fw">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.476102798515!2d106.77527661428758!3d10.851346760774803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752773430a7fb7%3A0x988988ca49c791bf!2zODI4IFhMIEjDoCBO4buZaSwgSGnhu4dwIFBow7osIFF14bqtbiA5LCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1665647982755!5m2!1svi!2s"
+                  width="100%" loading="lazy" class="h-56" referrerpolicy="no-referrer-when-downgrade"
+                  title="ThuDucBatteryMap"></iframe>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="hidden laptop:mt-3 tablet:block laptop:block">
+          <h3 class="mb-4 text-[20px] desktop:text-lg tablet:text-sm laptop:text-lg text-white font-bold">BẢN ĐỒ</h3>
+          <div class="flex s-phone:!block flex-row wrap">
+            <div class="flex w-full h-56 ant-col ant-col-xs-10 ant-col-sm-10 ant-col-md-10 ant-col-lg-8 css-txh9fw">
+              <img class="flex-1 object-cover w-full h-full laptop:object-fill"
+                src="/src/assets/images/imgHouse.bcd13c8f.jpg" alt="">
+            </div>
+            <div class="w-full ant-col ant-col-xs-14 ant-col-sm-14 ant-col-md-14 ant-col-lg-16 css-txh9fw">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.476102798515!2d106.77527661428758!3d10.851346760774803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752773430a7fb7%3A0x988988ca49c791bf!2zODI4IFhMIEjDoCBO4buZaSwgSGnhu4dwIFBow7osIFF14bqtbiA5LCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1665647982755!5m2!1svi!2s"
+                width="100%" loading="lazy" class="h-56" referrerpolicy="no-referrer-when-downgrade"
+                title="ThuDucBatteryMap"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="w-full pt-4 font-medium text-center text-white footer-copy-right layout-container mt-7">Bản quyền ©
+          2023 .<h2 class="inline-block">CỬA HÀNG ẮC QUY THỦ ĐỨC</h2>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer -->
+  </div>
+
+  <script type="module" src="/src/script/Header.js"></script>
+  <script type="module" src="/src/script/Footer.js"></script>
+  <script type="module" src="/src/script/Slider.js"></script>
+  <script type="module" src="/src/script/Advantages.js"></script>
+  <script type="module" src="/src/script/Partners.js"></script>
+  <script type="module" src="/src/script/infiniteSlider.js"></script>
+  <script type="module" src="/src/script/tabs.js"></script>
+  <script type="module" src="/src/script/collapse.js"></script>
+  <script src="/src/script/product.js"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <script>
+    function goHome() {
+      window.location.href = "/"
+    }
+  </script>
+</body>
+
+</html>
