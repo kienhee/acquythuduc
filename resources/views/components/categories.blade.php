@@ -12,8 +12,8 @@
                         <div data-ui-collapse data-ui-transition-name="collapse" id="collapse-{{ $item['id'] }}" shown>
                             <div class="collapse-content tablet:text-sm laptop:text-sm p-4 border-b-[1px]">
                                 @foreach ($item['children'] as $child)
-                                    <p class="p-2 cursor-pointer hover:bg-[#E5E7EB] rounded uppercase">{{ $child['name'] }}
-                                    </p>
+                                    <a href="{{route('client.products',['category'=>$child['slug']])}}" class="p-2 block cursor-pointer hover:bg-[#E5E7EB] rounded uppercase">{{ $child['name'] }}
+                                    </a>
                                 @endforeach
 
                             </div>

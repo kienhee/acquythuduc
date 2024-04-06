@@ -45,6 +45,7 @@ Route::prefix('/')->name('client.')->group(function () {
     Route::get("/", [ClientController::class, 'home'])->name('index');
     Route::get("/san-pham", [ClientController::class, 'products'])->name('products');
     Route::get("/san-pham/{slug}", [ClientController::class, 'productDetail'])->name('product-detail');
+    Route::get("/tim-kiem", [ClientController::class, 'search'])->name('search');
     Route::get("/tin-tuc", [ClientController::class, 'blog'])->name('blog');
     Route::get("/tin-tuc/{slug}", [ClientController::class, 'blogDetail'])->name('blog-detail');
     Route::get("/lien-he", [ClientController::class, 'contactGet'])->name('contactGet');

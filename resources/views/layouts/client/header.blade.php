@@ -56,7 +56,8 @@
                             HOTLINE: 0796 39 58 68 </p>
 
                     </div>
-                    <div class="bg-white flex-1 flex items-center w-full rounded px-[11px] py-1">
+                    <form action="{{ route('client.search') }}"
+                        class="bg-white flex-1 flex items-center w-full rounded px-[11px] py-1">
                         <span class="flex items-center w-5 h-5">
                             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 viewBox="0 0 25 25" fill="none">
@@ -74,8 +75,8 @@
                         </span>
 
                         <input class="w-full tablet:leading-3 text-[14px] outline-none leading-[1.57]"
-                            placeholder="Tìm kiếm" type="text">
-                    </div>
+                            placeholder="Tìm kiếm" name="keyword" value="{{ request()->keyword }}" type="text">
+                    </form>
                 </div>
                 <div class="nav-pages">
                     <ul id="routers"
@@ -84,7 +85,8 @@
                             @if (url()->current() == route($item['route']))
                                 <li
                                     class="page relative s-phone:!text-[12px] tablet:text-sm desktop:text-lg nav-item group cursor-pointer laptop:text-sm s-laptop:text-sm text-xl font-semibold text-[#895609] mx-0 m-0 duration-200 nav-normal">
-                                    {{ $item['name'] }}
+
+                                    <a class="block" href="{{ route($item['route']) }}">{{ $item['name'] }}</a>
                                 </li>
                             @else
                                 <li

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> @yield('title')</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('test') }}/assets/images/favicon.png">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
     <link rel="stylesheet" href="{{ asset('test') }}/assets/css/main.css">
     <!-- <link rel="preload" href="https://maps.gstatic.com/maps-api-v3/embed/js/56/4/intl/vi_ALL/init_embed.js" -->
@@ -12,7 +13,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -63,10 +63,6 @@
     </div>
 
     <script type="module" src="{{ asset('test') }}/script/Header.js"></script>
-    <script type="module" src="{{ asset('test') }}/script/Footer.js"></script>
-    <script type="module" src="{{ asset('test') }}/script/Slider.js"></script>
-    {{-- <script type="module" src="{{ asset('test') }}/script/Advantages.js"></script> --}}
-    {{-- <script type="module" src="{{ asset('test') }}/script/Partners.js"></script> --}}
     <script type="module" src="{{ asset('test') }}/script/infiniteSlider.js"></script>
     <script type="module" src="{{ asset('test') }}/script/tabs.js"></script>
     <script src="{{ asset('test') }}/script/product.js"></script>

@@ -56,5 +56,5 @@ const renderCategories = () => {
   categoriesId.innerHTML = render
 }
 
-renderCategories();
-renderContactMethods();
+// renderCategories();
+// renderContactMethods();
