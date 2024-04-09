@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('images');
+            $table->text('logo');
+            $table->string('name');
             $table->softDeletes();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

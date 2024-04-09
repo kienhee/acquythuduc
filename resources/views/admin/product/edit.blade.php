@@ -48,7 +48,7 @@
                             <p class="text-danger my-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label" for="code">Mã sản phẩm:<span class="text-danger">*</span></label>
                         <div class="d-flex gap-2">
                             <input type="text" class="form-control" id="code" name="code"
@@ -58,17 +58,18 @@
                             <p class="text-danger my-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label" for="status">Tình trạng hàng:<span class="text-danger">*</span></label>
-                        <div class="d-flex gap-2">
-                            <input type="text" class="form-control" id="status" name="status"
-                                value="{{ old('status') ?? $product->status }}" />
-                        </div>
+
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label" for="status">Tình trạng:<span class="text-danger">*</span></label>
+                        <select class="form-select" id="status" name="status">
+                            <option value="1" @if (old('status') == '1' || $product->status == '1') selected @endif>Mới 100 %</option>
+                            <option value="2" @if (old('status') == '2' || $product->status == '2') selected @endif>Đã qua sử dụng</option>
+                        </select>
                         @error('status')
                             <p class="text-danger my-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label" for="producedBy">Hãng sản xuất:<span class="text-danger">*</span></label>
                         <div class="d-flex gap-2">
                             <input type="text" class="form-control" id="producedBy" name="producedBy"
@@ -78,7 +79,7 @@
                             <p class="text-danger my-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label" for="Origin">Xuất xứ:<span class="text-danger">*</span></label>
                         <div class="d-flex gap-2">
                             <input type="text" class="form-control" id="Origin" name="Origin"
@@ -88,17 +89,25 @@
                             <p class="text-danger my-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
+
                         <label class="form-label" for="warranty">Bảo hành:<span class="text-danger">*</span></label>
-                        <div class="d-flex gap-2">
-                            <input type="text" class="form-control" id="warranty" name="warranty"
-                                value="{{ old('warranty') ?? $product->warranty }}" />
-                        </div>
+                        <select class="form-select" id="warranty" name="warranty">
+                            <option value="">Chọn một bảo hành</option>
+                            <option value="1" @if (old('warranty') == '1' || $product->warranty == '1') selected @endif>Không bảo hành
+                            </option>
+                            <option value="2" @if (old('warranty') == '2' || $product->warranty == '2') selected @endif>3 tháng</option>
+                            <option value="3" @if (old('warranty') == '3' || $product->warranty == '3') selected @endif>6 tháng</option>
+                            <option value="4" @if (old('warranty') == '4' || $product->warranty == '4') selected @endif>9 tháng</option>
+                            <option value="5" @if (old('warranty') == '5' || $product->warranty == '5') selected @endif>10 tháng</option>
+                            <option value="6" @if (old('warranty') == '6' || $product->warranty == '6') selected @endif>12 tháng</option>
+                            <option value="7" @if (old('warranty') == '7' || $product->warranty == '7') selected @endif>15 tháng</option>
+                        </select>
                         @error('warranty')
                             <p class="text-danger my-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label" for="size">Kích thước:<span class="text-danger">*</span></label>
                         <div class="d-flex gap-2">
                             <input type="text" class="form-control" id="size" name="size"
@@ -108,7 +117,7 @@
                             <p class="text-danger my-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-12">
+                    <div class="mb-3 col-md-4">
                         <label for="categories_select" class="form-label">Danh mục:<span
                                 class="text-danger">*</span></label>
                         <select class="form-select" id="categories_select" name="category_id">
@@ -123,7 +132,32 @@
                             <p class="text-danger my-1">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div class="mb-3 col-md-4">
+                        <label for="partners" class="form-label">Đối tác:<span class="text-danger">*</span></label>
+                        <select class="form-select" id="partners" name="partner_id">
+                            <option value="">Chọn một đối tác</option>
+                            @foreach (partners() as $item)
+                                <option value="{{ $item->id }}"
+                                    {{ old('partner_id') == $item->id || $product->partner_id == $item->id ? 'selected' : false }}>
+                                    {{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('partner_id')
+                            <p class="text-danger my-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                        <div class="mb-3 col-md-4">
 
+                        <label class="form-label" for="type">Dành cho:<span class="text-danger">*</span></label>
+                        <select class="form-select" id="type" name="type">
+                            <option value="1" @if (old('type') == '1' || $product->type == '1') selected @endif>Xe máy</option>
+                            <option value="2" @if (old('type') == '2' || $product->type == '2') selected @endif>Ô tô</option>
+
+                        </select>
+                        @error('type')
+                            <p class="text-danger my-1">{{ $message }}</p>
+                        @enderror
+                    </div>
                     <div class="mb-5">
                         <label class="form-label" for="content">Nội dung:<span class="text-danger">*</span></label>
                         <textarea id="content" class="form-control" name="content">{{ old('content') ?? $product->content }}</textarea>

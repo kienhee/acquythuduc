@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\Agency\AgencyController;
 use App\Http\Controllers\Admin\Auth\AuthController;
-use App\Http\Controllers\Admin\Brand\BrandController;
+use App\Http\Controllers\Admin\Partner\PartnerController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Contact\ContactController;
 use App\Http\Controllers\Admin\Contact\ContatController;
@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Feedback\FeedbackController;
 use App\Http\Controllers\Admin\Group\GroupController;
-use App\Http\Controllers\Admin\Partner\PartnerController;
 use App\Http\Controllers\Admin\Post\PostController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Province\ProvinceController;
@@ -56,9 +55,14 @@ Route::prefix('/cms')->name('dashboard.')->middleware('auth')->group(function ()
         Route::get('/', [SliderController::class, 'index'])->name('index');
         Route::put('/edit/{id}', [SliderController::class, 'update'])->name('update');
     });
-    Route::prefix('partners')->name('partners.')->group(function () {
+
+        Route::prefix('/partners')->name('partners.')->group(function () {
         Route::get('/', [PartnerController::class, 'index'])->name('index');
+        Route::get('/add', [PartnerController::class, 'add'])->name('add');
+        Route::post('/add', [PartnerController::class, 'store'])->name('store');
+        Route::get('/edit/{partner}', [PartnerController::class, 'edit'])->name('edit');
         Route::put('/edit/{id}', [PartnerController::class, 'update'])->name('update');
+        Route::delete('/delete/{id}', [PartnerController::class, 'delete'])->name('delete');
     });
     Route::prefix('categories')->name('category.')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');

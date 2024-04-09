@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('cover');
             $table->string('size');
             $table->integer('category_id');
+            $table->integer('partner_id');
+            $table->integer('type');
             $table->string('status');
             $table->string('producedBy')->nullable();
             $table->string('Origin')->nullable();

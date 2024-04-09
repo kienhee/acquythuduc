@@ -12,18 +12,14 @@
         <div class="slider">
             <ul id="partners" class="slider-list">
                 @if (partners())
-                    @foreach (explode(',', partners()->images) as $key => $image)
+                    @foreach (partners() as $key => $item)
                         <li class="slider-item w-11/12 tablet:w-full">
                             <img class="w-full object-contain block border-[1px] border-[#895609]"
-                                src="{{ $image }}" alt="">
+                                src="{{ $item->logo }}" alt="">
                         </li>
                     @endforeach
                 @endif
-
-
-
             </ul>
-
         </div>
     </div>
 </section>

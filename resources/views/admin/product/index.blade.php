@@ -6,15 +6,16 @@
     <div class="card">
         <x-alert />
 
-        <x-header-table tableName="Tất cả sản phẩm ({{ $totalPost }})" link="dashboard.product.add" linkName="Thêm Bài viết Mới" />
+        <x-header-table tableName="Tất cả sản phẩm ({{ $totalPost }})" link="dashboard.product.add"
+            linkName="Thêm Bài viết Mới" />
 
         <form method="GET" class="mx-3 mb-4 mt-4">
             <div class="row ">
                 <div class="col-md-6 col-lg-3 mb-2">
                     <div class="input-group input-group-merge">
                         <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
-                        <input type="search" class="form-control" placeholder="Tìm kiếm theo tiêu đề bài viết" name="keywords"
-                            value="{{ Request()->keywords }}">
+                        <input type="search" class="form-control" placeholder="Tìm kiếm theo tiêu đề bài viết"
+                            name="keywords" value="{{ Request()->keywords }}">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 mb-2">
@@ -61,6 +62,7 @@
                         <th class="px-1 text-center" style="width: 50px">#ID</th>
                         <th class="px-1 text-center" style="width: 50px"></th>
                         <th>Tên</th>
+                        <th class="px-1 text-center" style="width: 130px">Dành cho</th>
                         <th class="px-1 text-center" style="width: 130px">Trạng thái</th>
                         <th style="width: 130px">Ngày tạo</th>
                         <th class="px-1 text-center" style="width: 130px">Cài đặt</th>
@@ -87,6 +89,8 @@
                                         </strong>
                                     </a>
                                     <small>Kích thước: {{ $item->size }} </small>
+                                </td>
+                                <td class="px-0 text-center"><strong>{{ $item->type == '1' ? 'Xe máy' : 'Ô tô' }}</strong>
                                 </td>
                                 <td class="px-0 text-center"><span
                                         class="badge  me-1 {{ $item->deleted_at == null ? 'bg-label-success ' : ' bg-label-primary' }}">{{ $item->deleted_at == null ? 'Hoạt động' : 'Ẩn' }}</span>

@@ -118,7 +118,7 @@ function getSliders()
 }
 function partners()
 {
-    return Partner::where('id', 1)->first();
+    return Partner::all();
 }
 function agencies()
 {

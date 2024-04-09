@@ -57,6 +57,7 @@
                         @enderror
                     </div>
                 </div>
+                 
             </div>
             <hr>
             <div class="card-header d-flex align-items-center justify-content-between">
@@ -70,6 +71,46 @@
                     @enderror
                 </div>
             </div>
+            <hr>
+           
+                      <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Về chúng tôi<span class="text-danger">*</span></h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                     <div class="mb-5">
+                        <textarea id="content" class="form-control" name="about" placeholder="Nội dung bài viết">{{ old('about') ?? $setting->about }}</textarea>
+                        @error('about')
+                            <p class="text-danger my-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            <hr>
+           
+                      <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Hình ảnh<span class="text-danger">*</span></h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                      <div class="d-flex flex-column align-items-center justify-content-center gap-4 mb-3">
+                    <img src="{{ $setting->image }}" alt="Cover"
+                        class="rounded cover-img-post img-fluid " id="uploadedAvatar" />
+                    <div class="button-wrapper text-center">
+                        <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                            <span class="d-none d-sm-block">Tải ảnh lên</span>
+                            <i class="bx bx-upload d-block d-sm-none"></i>
+                            <input type="file" id="upload" class="account-file-input" hidden name="image"
+                                accept="image/png, image/jpeg" />
+                            <input type="hidden" name="image" value="{{ $setting->image }}">
+                        </label>
+                    </div>
+                    @error('image')
+                        <p class="text-danger my-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                </div>
+            </div>
         </div>
 
         <div class="d-flex justify-content-end gap-2">
@@ -77,5 +118,14 @@
         </div>
     </form>
 
-
+<script>
+        let imgInp = document.getElementById('upload');
+        let preview = document.getElementById('uploadedAvatar');
+        imgInp.onchange = evt => {
+            const [file] = imgInp.files
+            if (file) {
+                preview.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
 @endsection

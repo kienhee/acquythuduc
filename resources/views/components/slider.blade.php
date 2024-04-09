@@ -1,3 +1,4 @@
+  
    <section id="slider-container" class="swiper mySwiper mb-[3rem]">
        <div id="slider" class="swiper-wrapper">
            @if (getSliders())

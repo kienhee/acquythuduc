@@ -52,7 +52,7 @@ class UserController extends Controller
             'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6'
         ]);
-
+$validate['group_id']=1;
         $validate['password'] = Hash::make($validate['password']);
 
         unset($validate['password_confirmation']);

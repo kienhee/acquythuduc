@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agency;
-use App\Models\Brand;
+use App\Models\Partner;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Contact;
@@ -20,6 +20,20 @@ class ClientController extends Controller
 {
     public function home(Request $request)
     {
+ $partners = Partner::all();
+        $productsByPartners = [];
+        foreach ($partners as $partner) {
+            $products = Product::where('partner_id', $partner->id)->where('type', 2)->orderBy('created_at', 'desc')->get()->toArray();
+            // count($products) >= 5 ->Khi nào cần thì cop vào
+            if (!empty($products)) {
+                $productsByPartners[] = [
+                    'partner_logo' => $partner->logo,
+                    'partner_name' => $partner->name,
+                    'products' => $products
+                ];
+            }
+        }
+// dd($productsByPartners);
         $categories = Category::where('category_id', "<>", 0)->get();
         $productsByCategory = [];
         foreach ($categories as $category) {
@@ -32,7 +46,7 @@ class ClientController extends Controller
                 ];
             }
         }
-        return view('client.index', compact('productsByCategory'));
+        return view('client.index', compact('productsByCategory','productsByPartners'));
     }
     public function products(Request $request)
     {
