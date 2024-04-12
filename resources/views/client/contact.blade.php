@@ -51,16 +51,16 @@
         <section class="max-w-[1500px] mx-auto mb-[3rem] mt-8">
             <div
                 class="flex items-center justify-center w-1/2 gap-3 mx-auto mb-10 s-phone:gap-1 laptop:w-3/4 tablet:w-full">
-                <img class="w-2/5" src="{{ asset('test') }}/assets/images/img-title.32428066.png" alt="">
+                <img class="w-2/5" src="{{ asset('client') }}/assets/images/img-title.32428066.png" alt="">
                 <p class="text-[24px] s-phone:!text-sm laptop:text-xl text-[#8a4d04] tablet:text-lg text-center font-bold">
                     BẢN ĐỒ</p>
-                <img class="w-2/5" src="{{ asset('test') }}/assets/images/img-title.32428066.png" alt="">
+                <img class="w-2/5" src="{{ asset('client') }}/assets/images/img-title.32428066.png" alt="">
             </div>
 
             <div class="flex w-full s-phone:block">
                 <div class="h-[30rem] s-phone:w-full w-2/3">
                     <img class="object-cover w-full h-full"
-                        src="{{ asset('test') }}/assets/images/imgHouse-full.2d84caa5.jpg" alt="">
+                        src="{{ asset('client') }}/assets/images/imgHouse-full.2d84caa5.jpg" alt="">
                 </div>
                 <div class="w-full">
                     {!! $setting->map !!}

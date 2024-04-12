@@ -11,15 +11,24 @@
     <div class="w-full">
         <div class="slider">
             <ul id="partners" class="slider-list">
+
+            </ul>
+        </div>
+    </div>
+    <div class="w-full">
+        <div class="slider">
+            <div id="partners" class="slide-track ">
                 @if (partners())
                     @foreach (partners() as $key => $item)
-                        <li class="slider-item w-11/12 tablet:w-full">
-                            <img class="w-full object-contain block border-[1px] border-[#895609]"
-                                src="{{ $item->logo }}" alt="">
-                        </li>
+                        <div class="slide border-[1px] phone:!w-[150px] mx-3 border-[#8a4d04]">
+                            <img class="object-contain h-full" src="{{ $item->logo }}" width="250"
+                                alt="{{ $item->name }}" />
+                        </div>
                     @endforeach
                 @endif
-            </ul>
+
+
+            </div>
         </div>
     </div>
 </section>

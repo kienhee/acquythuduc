@@ -12,7 +12,7 @@
                 <section id="car-battery-container" class="max-w-[1500px] mx-auto mb-[3rem]">
 
 
-                    <div class="text-[#895609] text-xl font font-semibold pb-3">Tìm kiếm: {{ $keyword }}
+                    <div class="text-[#895609] text-xl font font-semibold pb-3">Tìm kiếm: {{ $keywords }}
                     </div>
                     <hr class="mb-5 border-t-2">
 

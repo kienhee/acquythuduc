@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> @yield('title')</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('test') }}/assets/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="{{ asset('client') }}/assets/images/favicon.png">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
-    <link rel="stylesheet" href="{{ asset('test') }}/assets/css/main.css">
+    <link rel="stylesheet" href="{{ asset('client') }}/assets/css/main.css">
     <!-- <link rel="preload" href="https://maps.gstatic.com/maps-api-v3/embed/js/56/4/intl/vi_ALL/init_embed.js" -->
     <!-- nonce="p63S8D8MTBW__TbE7-z6-Q" as="script" /> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -68,24 +68,24 @@
             class="  bottom-[120%]  h-[200px] transition-all duration-200 ease-in overflow-hidden flex flex-col justify-between w-14 rounded-[500px] px-2 py-4">
             <div
                 class="cursor-pointer border-[1px] border-transparent hover:border-[#ccc] rounded-[100%] overflow-hidden">
-                <img class="block" src="{{ asset('test') }}/assets/images/Icon_of_Zalo.svg.png" alt="">
+                <img class="block" src="{{ asset('client') }}/assets/images/Icon_of_Zalo.svg.png" alt="">
             </div>
             <div
                 class="cursor-pointer border-[1px] border-transparent hover:border-[#ccc] rounded-[100%] overflow-hidden">
-                <img class="block" src="{{ asset('test') }}/assets/images/messenger.jpeg" alt="">
+                <img class="block" src="{{ asset('client') }}/assets/images/messenger.jpeg" alt="">
             </div>
             <div
                 class="cursor-pointer border-[1px] border-transparent hover:border-[#ccc] rounded-[100%] overflow-hidden">
-                <img src="{{ asset('test') }}/assets/images/phone-icon.png" alt="">
+                <img src="{{ asset('client') }}/assets/images/phone-icon.png" alt="">
             </div>
         </div>
     </div>
     <!-- social -->
-    <script type="module" src="{{ asset('test') }}/script/Header.js"></script>
-    <script type="module" src="{{ asset('test') }}/script/infiniteSlider.js"></script>
-    <script type="module" src="{{ asset('test') }}/script/tabs.js"></script>
-    <script src="{{ asset('test') }}/script/product.js"></script>
-    <script type="module" src="{{ asset('test') }}/script/collapse.js"></script>
+    <script type="module" src="{{ asset('client') }}/script/Header.js"></script>
+    <script type="module" src="{{ asset('client') }}/script/infiniteSlider.js"></script>
+    <script type="module" src="{{ asset('client') }}/script/tabs.js"></script>
+    <script src="{{ asset('client') }}/script/product.js"></script>
+    <script type="module" src="{{ asset('client') }}/script/collapse.js"></script>
     <!-- <script type="text/tailwindcss" src="tailwind.config.js"></script> -->
 
     <script>
@@ -103,19 +103,19 @@
         });
         const advantages = [{
                 title: "CAM KẾT CHÍNH HÃNG",
-                img: "{{ asset('test') }}/assets/images/genuine.ae38b4c3.png"
+                img: "{{ asset('client') }}/assets/images/genuine.ae38b4c3.png"
             },
             {
                 title: "HỖ TRỢ MỌI LÚC",
-                img: "{{ asset('test') }}/assets/images/support.55d5b76d.png"
+                img: "{{ asset('client') }}/assets/images/support.55d5b76d.png"
             },
             {
                 title: "TƯ VẤN MIỄN PHÍ",
-                img: "{{ asset('test') }}/assets/images/free.95b59d71.png"
+                img: "{{ asset('client') }}/assets/images/free.95b59d71.png"
             },
             {
                 title: "CHÍNH SÁCH ĐỔI TRẢ",
-                img: "{{ asset('test') }}/assets/images/change.a2e701f2.png"
+                img: "{{ asset('client') }}/assets/images/change.a2e701f2.png"
             }
         ]
 

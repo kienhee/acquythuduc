@@ -12,8 +12,8 @@
                 @forelse ($productsByCategory as $item)
                     <section id="car-battery-container" class="max-w-[1500px] mx-auto mb-[3rem]">
 
-                        @if (request()->category)
-                            <div class="text-[#895609] text-xl font font-semibold pb-3">Sản phẩm / {{ request()->category }}
+                        @if (request()->category ||request()->type)
+                            <div class="text-[#895609] text-xl font font-semibold pb-3">Sản phẩm / {{ request()->category ?? "Ắc quy ô tô" }}
                             </div>
                             <hr class="mb-5 border-t-2">
                         @elseif (request()->search)
@@ -26,10 +26,11 @@
                                 <p class="text-2xl s-phone:!text-base font-bold text-white laptop:text-xl tablet:text-xl">
                                     {{ $item['category_name'] }}</p>
                                 <div class="flex items-center s-phone:!hidden">
-                                    <a href="{{route('client.products',['category'=>$item['slug']])}}" class="text-[#895609] laptop:text-base tablet:text-lg font-[600] text-xl mr-2">Xem
+                                    <a href="{{ route('client.products', ['category' => $item['slug']]) }}"
+                                        class="text-[#895609] laptop:text-base tablet:text-lg font-[600] text-xl mr-2">Xem
                                         tất cả
                                     </a>
-                                    <img src="{{ asset('test') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">
+                                    <img src="{{ asset('client') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">
                                 </div>
                             </div>
                         @endif

@@ -33,10 +33,10 @@
 
             <div id="logo" onclick="goHome()"
                 class="logo w-2/5 max-[700px]:w-[45%] tablet:w-full pt-[0.5rem] cursor-pointer">
-                <img class=" tablet:hidden logo-img laptop:h-[3.8rem] h-[4rem] w-[100%] object-contain" width="1070" height="144"
-                    src="{{ asset('test') }}/assets/images/logo.98b96fdb.png" alt="">
+                <img class=" tablet:hidden logo-img laptop:h-[3.8rem] h-[4rem] w-[100%] object-contain" width="1070"
+                    height="144" src="{{ asset('client') }}/assets/images/logo.98b96fdb.png" alt="">
                 <img class="tablet:h-16 s-phone:!px-1 s-phone:!w-full hidden tablet:block tablet:mx-auto tablet:w-[80%] object-contain"
-                    src="{{ asset('test') }}/assets/images/logo-footer.4cc7d107 (1).png" alt="">
+                    src="{{ asset('client') }}/assets/images/logo-footer.4cc7d107 (1).png" alt="">
             </div>
             <div class="flex-1 w-3/5 pl-20 tablet:pl-0 desktop:pl-16 laptop:pl-16 tablet:w-full">
                 <div
@@ -71,14 +71,16 @@
                             </svg>
                         </span>
 
-                        <input class="w-full tablet:leading-3 text-[14px] outline-none leading-[1.57]"
-                            placeholder="Tìm kiếm" type="text">
+                       <form action="{{route('client.search')}}">
+                         <input class="w-full tablet:leading-3 text-[14px] outline-none leading-[1.57]"
+                            placeholder="Tìm kiếm" name="keywords" value="{{request()->keywords}}" type="text">
+                       </form>
                     </div>
                 </div>
                 <div class="nav-pages">
                     <ul id="routers"
                         class="flex mx-auto tablet:pt-[0.5rem] pt-4 w-11/12 laptop:w-full pb-[0.75rem] items-center justify-between">
-                         @foreach ($menu as $item)
+                        @foreach ($menu as $item)
                             @if (url()->current() == route($item['route']))
                                 <li
                                     class="page relative s-phone:!text-[12px] tablet:text-sm desktop:text-lg nav-item group cursor-pointer laptop:text-sm s-laptop:text-sm text-xl font-semibold text-[#895609] mx-0 m-0 duration-200 nav-normal">

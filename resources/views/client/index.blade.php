@@ -44,41 +44,41 @@
         <section id="about-container" class="max-w-[1500px] mx-auto mb-[3rem]">
             <div class="flex gap-6 laptop:gap-4">
                 <div class="w-1/2 tablet:hidden">
-                    <img class="w-full h-full" src="{{ asset('test') }}/assets/images/acquyhoaphat.dd8214a9.jpg"
+                    <img class="w-full h-full" src="{{ asset('client') }}/assets/images/acquyhoaphat.dd8214a9.jpg"
                         alt="">
                 </div>
                 <div class="w-1/2 tablet:w-full">
                     <div class="flex items-center">
-                        <img class="w-2/5" src="{{ asset('test') }}/assets/images/img-title.32428066.png" alt="">
+                        <img class="w-2/5" src="{{ asset('client') }}/assets/images/img-title.32428066.png" alt="">
                         <p
                             class="text-[24px] s-phone:!text-xs laptop:text-sm desktop:text-lg tablet:text-sm text-[#8a4d04] text-center font-bold">
                             VỀ CHÚNG TÔI</p>
-                        <img class="w-2/5" src="{{ asset('test') }}/assets/images/img-title.32428066.png" alt="">
+                        <img class="w-2/5" src="{{ asset('client') }}/assets/images/img-title.32428066.png" alt="">
                     </div>
                     <div>
                         {!! setting()->about !!}
                     </div>
                     <!-- <div class="text-[20px] desktop:text-lg laptop:text-base tablet:text-sm my-4">
-                                        <p class="text-justify"><span class="text-[#8a4d04] font-semibold">Ắc quy Thủ Đức: </span>chuyên
-                                            cung
-                                            cấp các sản phẩm ắc quy nội, ngoại nhập
-                                            như: <span class="text-blue-700">GS, SEBANG,
-                                                DONGNAI, VARTA, AMARON, ENIMAC, ROCKET, DELKOR...</span></p>
-                                        <p class="text-justify">
-                                            Là một chi nhánh thuộc <span class="font-semibold text-blue-700">Công ty TNHH TM-DV ắc quy Hòa
-                                                Phát</span>
-                                            với 13 chi nhánh trải dài khắp tp
-                                            HCM, ắc quy Thủ Đức luôn đặt mục tiêu "chất lượng hàng đầu - giá cả phải chăng - dịch vụ hoàn
-                                            hảo"
-                                            nhằm
-                                            mang
-                                            lại quyền lợi tốt nhất cho khách hàng.
-                                        </p>
-                                        <p>Chúng tôi tin chắc rằng bạn sẽ hài lòng khi đến vớiắc quy Thủ Đức.</p>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <img class="w-4/5" src="{{ asset('test') }}/assets/images/aboutLogo.cc0c40b9.png" alt="">
-                                    </div> -->
+                                            <p class="text-justify"><span class="text-[#8a4d04] font-semibold">Ắc quy Thủ Đức: </span>chuyên
+                                                cung
+                                                cấp các sản phẩm ắc quy nội, ngoại nhập
+                                                như: <span class="text-blue-700">GS, SEBANG,
+                                                    DONGNAI, VARTA, AMARON, ENIMAC, ROCKET, DELKOR...</span></p>
+                                            <p class="text-justify">
+                                                Là một chi nhánh thuộc <span class="font-semibold text-blue-700">Công ty TNHH TM-DV ắc quy Hòa
+                                                    Phát</span>
+                                                với 13 chi nhánh trải dài khắp tp
+                                                HCM, ắc quy Thủ Đức luôn đặt mục tiêu "chất lượng hàng đầu - giá cả phải chăng - dịch vụ hoàn
+                                                hảo"
+                                                nhằm
+                                                mang
+                                                lại quyền lợi tốt nhất cho khách hàng.
+                                            </p>
+                                            <p>Chúng tôi tin chắc rằng bạn sẽ hài lòng khi đến vớiắc quy Thủ Đức.</p>
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <img class="w-4/5" src="{{ asset('client') }}/assets/images/aboutLogo.cc0c40b9.png" alt="">
+                                        </div> -->
                 </div>
             </div>
         </section>
@@ -89,9 +89,9 @@
             <div class="header-recommend-product shadow-md flex items-center justify-between mb-[2rem] h-16 px-8">
                 <p class="text-2xl font-bold text-white s-phone:!text-base laptop:text-xl tablet:text-xl">ẮC QUY Ô TÔ</p>
                 <div class="flex items-center s-phone:!hidden">
-                    <a href="{{ route('client.products', ['type' => 'oto']) }}"
+                    <a href="{{ route('client.products', ['type' => '2']) }}"
                         class="text-[#895609] font-[600] laptop:text-base text-xl  tablet:text-lg mr-2">Xem tất cả</a>
-                    <img src="{{ asset('test') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">
+                    <img src="{{ asset('client') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">
                 </div>
             </div>
             <div class="flex tablet:flex-col">
@@ -145,7 +145,7 @@
                         <a href="{{ route('client.products', ['category' => $item['slug']]) }}"
                             class="text-[#895609] laptop:text-base tablet:text-lg font-[600] text-xl mr-2">Xem tất cả
                         </a>
-                        <img src="{{ asset('test') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">
+                        <img src="{{ asset('client') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">
                     </div>
                 </div>
                 <div class="flex">
@@ -180,9 +180,9 @@
         <section class="">
 
             <div class="flex items-center justify-center w-3/4 gap-2 mx-auto mb-10 desktop:w-3/4 tablet:w-full">
-                <img class="w-2/5" src="{{ asset('test') }}/assets/images/img-title.32428066.png" alt="">
+                <img class="w-2/5" src="{{ asset('client') }}/assets/images/img-title.32428066.png" alt="">
                 <p class="text-[24px] laptop:text-xl text-[#8a4d04] text-center font-bold tablet:text-lg">HÌNH ẢNH</p>
-                <img class="w-2/5" src="{{ asset('test') }}/assets/images/img-title.32428066.png" alt="">
+                <img class="w-2/5" src="{{ asset('client') }}/assets/images/img-title.32428066.png" alt="">
             </div>
 
             <div>

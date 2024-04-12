@@ -20,7 +20,7 @@ class ClientController extends Controller
 {
     public function home(Request $request)
     {
- $partners = Partner::all();
+        $partners = Partner::all();
         $productsByPartners = [];
         foreach ($partners as $partner) {
             $products = Product::where('partner_id', $partner->id)->where('type', 2)->orderBy('created_at', 'desc')->get()->toArray();
@@ -33,7 +33,7 @@ class ClientController extends Controller
                 ];
             }
         }
-// dd($productsByPartners);
+        // dd($productsByPartners);
         $categories = Category::where('category_id', "<>", 0)->get();
         $productsByCategory = [];
         foreach ($categories as $category) {
@@ -47,7 +47,7 @@ class ClientController extends Controller
                 ];
             }
         }
-        return view('client.index', compact('productsByCategory','productsByPartners'));
+        return view('client.index', compact('productsByCategory', 'productsByPartners'));
     }
     public function products(Request $request)
     {
@@ -55,20 +55,31 @@ class ClientController extends Controller
         if ($request->has('category') && $request->category != null) {
             $result->where('slug', 'like', '%' . $request->category . '%');
         }
+
         $categories = $result->where('category_id', "<>", 0)->get();
 
         $productsByCategory = [];
-        foreach ($categories as $category) {
-            $products = Product::where('category_id', $category->id)->limit(6)->orderBy('created_at', 'desc')->get()->toArray();
-            // count($products) >= 5 ->Khi nào cần thì cop vào
-            if (!empty($products)) {
-                $productsByCategory[] = [
-                    'category_name' => $category->name,
-                    'slug' => $category->slug,
-                    'products' => $products
-                ];
+        if ($request->has('type') && $request->type != null) {
+            $products = Product::where('type', $request->type)->limit(6)->orderBy('created_at', 'desc')->get()->toArray();
+            $productsByCategory[] = [
+                'category_name' => "Ắc quy ô tô",
+                'slug' => "",
+                'products' => $products
+            ];
+        } else {
+            foreach ($categories as $category) {
+                $products = Product::where('category_id', $category->id)->limit(6)->orderBy('created_at', 'desc')->get()->toArray();
+                // count($products) >= 5 ->Khi nào cần thì cop vào
+                if (!empty($products)) {
+                    $productsByCategory[] = [
+                        'category_name' => $category->name,
+                        'slug' => $category->slug,
+                        'products' => $products
+                    ];
+                }
             }
         }
+
         return view('client.product', compact('productsByCategory'));
     }
     public function category($slug)
@@ -89,12 +100,12 @@ class ClientController extends Controller
     }
     public function search(Request $request)
     {
-        $keyword = $request->keyword;
+        $keywords = $request->keywords;
         $products = Product::where('name', 'like', '%' . $request->keyword . '%')->orderBy('created_at', 'desc')->paginate(15)->withQueryString();
         if (!$products) {
             abort(404);
         }
-        return view('client.search', compact('products', "keyword"));
+        return view('client.search', compact('products', "keywords"));
     }
     public function tag(Request $request)
     {
