@@ -24,18 +24,16 @@
 
 @endphp
 <!-- Header -->
-<header
-    class="transition-all duration-200 ease-in relative top-0 right-0 left-0 w-full max-h-[116px] tablet:max-h-full z-[9999]"
-    id="header">
+<header class="relative top-0 right-0 left-0 w-full max-h-[116px] tablet:max-h-full z-[9999]" id="header">
     <div class="absolute top-0 z-10 w-full h-full bg-white tablet:hidden"></div>
     <div
         class="relative z-20 w-full tablet:!bg-gradient-to-b tablet:!from-[#f25d19] tablet:!to-[#fad327] header-container">
         <div
-            class="max-w-[1500px] tablet:block w-full mx-auto header-flex layout-container py-1 px-[1rem] laptop:px-[1rem] h-full flex items-start">
+            class="max-w-[1500px] tablet:block w-full mx-auto header-flex layout-container py-1 px-[2rem] laptop:px-[1rem] h-full flex items-start">
 
             <div id="logo" onclick="goHome()"
                 class="logo w-2/5 max-[700px]:w-[45%] tablet:w-full pt-[0.5rem] cursor-pointer">
-                <img class=" tablet:hidden logo-img laptop:h-[3.8rem] h-[4rem] w-[100%]" width="1070" height="144"
+                <img class=" tablet:hidden logo-img laptop:h-[3.8rem] h-[4rem] w-[100%] object-contain" width="1070" height="144"
                     src="{{ asset('test') }}/assets/images/logo.98b96fdb.png" alt="">
                 <img class="tablet:h-16 s-phone:!px-1 s-phone:!w-full hidden tablet:block tablet:mx-auto tablet:w-[80%] object-contain"
                     src="{{ asset('test') }}/assets/images/logo-footer.4cc7d107 (1).png" alt="">
@@ -56,8 +54,7 @@
                             HOTLINE: 0796 39 58 68 </p>
 
                     </div>
-                    <form action="{{ route('client.search') }}"
-                        class="bg-white flex-1 flex items-center w-full rounded px-[11px] py-1">
+                    <div id="search" class="bg-white flex-1 flex items-center w-full rounded px-[11px] py-1">
                         <span class="flex items-center w-5 h-5">
                             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 viewBox="0 0 25 25" fill="none">
@@ -75,13 +72,13 @@
                         </span>
 
                         <input class="w-full tablet:leading-3 text-[14px] outline-none leading-[1.57]"
-                            placeholder="Tìm kiếm" name="keyword" value="{{ request()->keyword }}" type="text">
-                    </form>
+                            placeholder="Tìm kiếm" type="text">
+                    </div>
                 </div>
                 <div class="nav-pages">
                     <ul id="routers"
                         class="flex mx-auto tablet:pt-[0.5rem] pt-4 w-11/12 laptop:w-full pb-[0.75rem] items-center justify-between">
-                        @foreach ($menu as $item)
+                         @foreach ($menu as $item)
                             @if (url()->current() == route($item['route']))
                                 <li
                                     class="page relative s-phone:!text-[12px] tablet:text-sm desktop:text-lg nav-item group cursor-pointer laptop:text-sm s-laptop:text-sm text-xl font-semibold text-[#895609] mx-0 m-0 duration-200 nav-normal">
@@ -105,4 +102,5 @@
     </div>
 
 </header>
+
 <!-- Header -->

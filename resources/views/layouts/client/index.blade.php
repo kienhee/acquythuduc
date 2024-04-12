@@ -61,7 +61,26 @@
         </div>
         @include('layouts.client.footer')
     </div>
+    <!-- social -->
+    <div id="social" class="fixed right-[10px] z-[99999] bottom-[10%]">
 
+        <div id="socials"
+            class="  bottom-[120%]  h-[200px] transition-all duration-200 ease-in overflow-hidden flex flex-col justify-between w-14 rounded-[500px] px-2 py-4">
+            <div
+                class="cursor-pointer border-[1px] border-transparent hover:border-[#ccc] rounded-[100%] overflow-hidden">
+                <img class="block" src="{{ asset('test') }}/assets/images/Icon_of_Zalo.svg.png" alt="">
+            </div>
+            <div
+                class="cursor-pointer border-[1px] border-transparent hover:border-[#ccc] rounded-[100%] overflow-hidden">
+                <img class="block" src="{{ asset('test') }}/assets/images/messenger.jpeg" alt="">
+            </div>
+            <div
+                class="cursor-pointer border-[1px] border-transparent hover:border-[#ccc] rounded-[100%] overflow-hidden">
+                <img src="{{ asset('test') }}/assets/images/phone-icon.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- social -->
     <script type="module" src="{{ asset('test') }}/script/Header.js"></script>
     <script type="module" src="{{ asset('test') }}/script/infiniteSlider.js"></script>
     <script type="module" src="{{ asset('test') }}/script/tabs.js"></script>
@@ -73,27 +92,36 @@
         function goHome() {
             window.location.href = "/"
         }
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                renderBullet: function(index, className) {
+                    return '<span class="' + className + ' inline-block">' + "</span>";
+                },
+            },
+        });
         const advantages = [{
                 title: "CAM KẾT CHÍNH HÃNG",
-                img: "/test/assets/images/genuine.ae38b4c3.png"
+                img: "{{ asset('test') }}/assets/images/genuine.ae38b4c3.png"
             },
             {
                 title: "HỖ TRỢ MỌI LÚC",
-                img: "/test/assets/images/support.55d5b76d.png"
+                img: "{{ asset('test') }}/assets/images/support.55d5b76d.png"
             },
             {
                 title: "TƯ VẤN MIỄN PHÍ",
-                img: "/test/assets/images/free.95b59d71.png"
+                img: "{{ asset('test') }}/assets/images/free.95b59d71.png"
             },
             {
                 title: "CHÍNH SÁCH ĐỔI TRẢ",
-                img: "/test/assets/images/change.a2e701f2.png"
+                img: "{{ asset('test') }}/assets/images/change.a2e701f2.png"
             }
         ]
 
         const renderAdvantage = (advantage, index) => {
             const isLast = index === advantages.length - 1;
-            return `<div class="flex tablet:flex-col tablet:px-2 px-3 ${isLast ? "" : "border-r-[2px]"} border-[#895609] h-[75%] items-center justify-center w-[25%]">
+            return `<div class="flex s-phone:w-full s-phone:border-none s-phone:p-2 tablet:flex-col tablet:px-2 px-3 ${isLast ? "" : "border-r-[2px]"} border-[#895609] h-[75%] items-center justify-center w-[25%]">
   <img class="mr-2 laptop:w-12 tablet:w-9 tablet:h-9 tablet:mb-2" src="${advantage.img}" alt="">
   <p class="font-[500] tablet:text-xs desktop:text-lg laptop:text-sm text-center text-[1.25rem] text-[#8a4d04]">${advantage.title}</p>
 </div>`

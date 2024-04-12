@@ -42,6 +42,7 @@ class ClientController extends Controller
             if (!empty($products)) {
                 $productsByCategory[] = [
                     'category_name' => $category->name,
+                    'slug' => $category->slug,
                     'products' => $products
                 ];
             }

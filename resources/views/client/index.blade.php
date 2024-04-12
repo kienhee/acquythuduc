@@ -59,26 +59,26 @@
                         {!! setting()->about !!}
                     </div>
                     <!-- <div class="text-[20px] desktop:text-lg laptop:text-base tablet:text-sm my-4">
-                                    <p class="text-justify"><span class="text-[#8a4d04] font-semibold">Ắc quy Thủ Đức: </span>chuyên
-                                        cung
-                                        cấp các sản phẩm ắc quy nội, ngoại nhập
-                                        như: <span class="text-blue-700">GS, SEBANG,
-                                            DONGNAI, VARTA, AMARON, ENIMAC, ROCKET, DELKOR...</span></p>
-                                    <p class="text-justify">
-                                        Là một chi nhánh thuộc <span class="font-semibold text-blue-700">Công ty TNHH TM-DV ắc quy Hòa
-                                            Phát</span>
-                                        với 13 chi nhánh trải dài khắp tp
-                                        HCM, ắc quy Thủ Đức luôn đặt mục tiêu "chất lượng hàng đầu - giá cả phải chăng - dịch vụ hoàn
-                                        hảo"
-                                        nhằm
-                                        mang
-                                        lại quyền lợi tốt nhất cho khách hàng.
-                                    </p>
-                                    <p>Chúng tôi tin chắc rằng bạn sẽ hài lòng khi đến vớiắc quy Thủ Đức.</p>
-                                </div>
-                                <div class="flex justify-center">
-                                    <img class="w-4/5" src="{{ asset('test') }}/assets/images/aboutLogo.cc0c40b9.png" alt="">
-                                </div> -->
+                                        <p class="text-justify"><span class="text-[#8a4d04] font-semibold">Ắc quy Thủ Đức: </span>chuyên
+                                            cung
+                                            cấp các sản phẩm ắc quy nội, ngoại nhập
+                                            như: <span class="text-blue-700">GS, SEBANG,
+                                                DONGNAI, VARTA, AMARON, ENIMAC, ROCKET, DELKOR...</span></p>
+                                        <p class="text-justify">
+                                            Là một chi nhánh thuộc <span class="font-semibold text-blue-700">Công ty TNHH TM-DV ắc quy Hòa
+                                                Phát</span>
+                                            với 13 chi nhánh trải dài khắp tp
+                                            HCM, ắc quy Thủ Đức luôn đặt mục tiêu "chất lượng hàng đầu - giá cả phải chăng - dịch vụ hoàn
+                                            hảo"
+                                            nhằm
+                                            mang
+                                            lại quyền lợi tốt nhất cho khách hàng.
+                                        </p>
+                                        <p>Chúng tôi tin chắc rằng bạn sẽ hài lòng khi đến vớiắc quy Thủ Đức.</p>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <img class="w-4/5" src="{{ asset('test') }}/assets/images/aboutLogo.cc0c40b9.png" alt="">
+                                    </div> -->
                 </div>
             </div>
         </section>
@@ -89,7 +89,8 @@
             <div class="header-recommend-product shadow-md flex items-center justify-between mb-[2rem] h-16 px-8">
                 <p class="text-2xl font-bold text-white s-phone:!text-base laptop:text-xl tablet:text-xl">ẮC QUY Ô TÔ</p>
                 <div class="flex items-center s-phone:!hidden">
-                    <p class="text-[#895609] font-[600] laptop:text-base text-xl  tablet:text-lg mr-2">Xem tất cả</p>
+                    <a href="{{ route('client.products', ['type' => 'oto']) }}"
+                        class="text-[#895609] font-[600] laptop:text-base text-xl  tablet:text-lg mr-2">Xem tất cả</a>
                     <img src="{{ asset('test') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">
                 </div>
             </div>
@@ -141,8 +142,9 @@
                     <p class="text-2xl s-phone:!text-base font-bold text-white laptop:text-xl tablet:text-xl">
                         {{ $item['category_name'] }}</p>
                     <div class="flex items-center s-phone:!hidden">
-                        <p class="text-[#895609] laptop:text-base tablet:text-lg font-[600] text-xl mr-2">Xem tất cả
-                        </p>
+                        <a href="{{ route('client.products', ['category' => $item['slug']]) }}"
+                            class="text-[#895609] laptop:text-base tablet:text-lg font-[600] text-xl mr-2">Xem tất cả
+                        </a>
                         <img src="{{ asset('test') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">
                     </div>
                 </div>
