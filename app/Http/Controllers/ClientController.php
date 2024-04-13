@@ -2,19 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agency;
 use App\Models\Partner;
 use App\Models\Category;
-use App\Models\Comment;
-use App\Models\Contact;
 use App\Models\Post;
 use App\Models\Product;
-use App\Models\Province;
 use App\Models\Setting;
-use App\Models\Subscriber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Termwind\Components\Raw;
 
 class ClientController extends Controller
 {
@@ -33,21 +27,22 @@ class ClientController extends Controller
                 ];
             }
         }
-        // dd($productsByPartners);
-        $categories = Category::where('category_id', "<>", 0)->get();
-        $productsByCategory = [];
-        foreach ($categories as $category) {
-            $products = Product::where('category_id', $category->id)->limit(4)->orderBy('created_at', 'desc')->get()->toArray();
-            // count($products) >= 5 ->Khi nào cần thì cop vào
+
+        $productByType = [];
+        for ($i = 1; $i <= 3; $i++) {
+            if ($i == 2) {
+                continue;
+            }
+            $products = Product::where('type', $i)->limit(4)->orderBy('created_at', 'desc')->get()->toArray();
             if (!empty($products)) {
-                $productsByCategory[] = [
-                    'category_name' => $category->name,
-                    'slug' => $category->slug,
+                $productByType[] = [
+                    'type' => $i,
                     'products' => $products
                 ];
             }
         }
-        return view('client.index', compact('productsByCategory', 'productsByPartners'));
+
+        return view('client.index', compact('productsByPartners', 'productByType'));
     }
     public function products(Request $request)
     {

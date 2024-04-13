@@ -62,7 +62,7 @@
                         <th class="px-1 text-center" style="width: 50px">#ID</th>
                         <th class="px-1 text-center" style="width: 50px"></th>
                         <th>Tên</th>
-                        <th class="px-1 text-center" style="width: 130px">Dành cho</th>
+                        <th class="px-1 text-center" style="width: 130px">Loại</th>
                         <th class="px-1 text-center" style="width: 130px">Trạng thái</th>
                         <th style="width: 130px">Ngày tạo</th>
                         <th class="px-1 text-center" style="width: 130px">Cài đặt</th>
@@ -90,7 +90,14 @@
                                     </a>
                                     <small>Kích thước: {{ $item->size }} </small>
                                 </td>
-                                <td class="px-0 text-center"><strong>{{ $item->type == '1' ? 'Xe máy' : 'Ô tô' }}</strong>
+                                <td class="px-0 text-center">
+                                    @if ($item->type == '1')
+                                        <strong>Ắc quy xe máy</strong>
+                                    @elseIf($item->type == '2')
+                                        <strong>Ắc quy ô tô</strong>
+                                    @else
+                                        <strong>Phụ kiện ắc quy</strong>
+                                    @endif
                                 </td>
                                 <td class="px-0 text-center"><span
                                         class="badge  me-1 {{ $item->deleted_at == null ? 'bg-label-success ' : ' bg-label-primary' }}">{{ $item->deleted_at == null ? 'Hoạt động' : 'Ẩn' }}</span>

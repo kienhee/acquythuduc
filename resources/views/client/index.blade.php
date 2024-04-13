@@ -1,29 +1,6 @@
 @extends('layouts.client.index')
 @section('title', 'Trang chủ')
-@section('seo')
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="{{ getEnv('APP_NAME') }} - Sản xuất sàn nhựa giả vân gỗ bóc dán." />
-    <meta name="description"
-        content="Chúng tôi cam kết mang đến cho khách hàng những sản phẩm sàn nhựa giả vân gỗ bóc dán với chất lượng vượt trội, giúp không gian sống trở nên đẳng cấp và thoải mái." />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ getEnv('APP_URL') }}" />
-    <meta property="og:title" content="{{ getEnv('APP_NAME') }} - Sản xuất sàn nhựa giả vân gỗ bóc dán." />
-    <meta property="og:description"
-        content="Chúng tôi cam kết mang đến cho khách hàng những sản phẩm sàn nhựa giả vân gỗ bóc dán với chất lượng vượt trội, giúp không gian sống trở nên đẳng cấp và thoải mái." />
-    <meta property="og:image" content="{{ getEnv('APP_URL') }}/client/images/seo/image.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="{{ getEnv('APP_URL') }}" />
-    <meta property="twitter:title" content="{{ getEnv('APP_NAME') }} - Sản xuất sàn nhựa giả vân gỗ bóc dán." />
-    <meta property="twitter:description"
-        content="Chúng tôi cam kết mang đến cho khách hàng những sản phẩm sàn nhựa giả vân gỗ bóc dán với chất lượng vượt trội, giúp không gian sống trở nên đẳng cấp và thoải mái." />
-    <meta property="twitter:image" content="{{ getEnv('APP_URL') }}/client/images/seo/image.jpg" />
-
-    <!-- Meta Tags Generated with https://metatags.io -->
-@endsection
 @section('content')
     <!-- Slider -->
     <x-slider />
@@ -55,30 +32,13 @@
                             VỀ CHÚNG TÔI</p>
                         <img class="w-2/5" src="{{ asset('client') }}/assets/images/img-title.32428066.png" alt="">
                     </div>
+                    <div class="w-full my-4" id="about_img">
+                        <img class="w-full h-full" src="{{ asset('client') }}/assets/images/acquyhoaphat.dd8214a9.jpg"
+                            alt="">
+                    </div>
                     <div>
                         {!! setting()->about !!}
                     </div>
-                    <!-- <div class="text-[20px] desktop:text-lg laptop:text-base tablet:text-sm my-4">
-                                            <p class="text-justify"><span class="text-[#8a4d04] font-semibold">Ắc quy Thủ Đức: </span>chuyên
-                                                cung
-                                                cấp các sản phẩm ắc quy nội, ngoại nhập
-                                                như: <span class="text-blue-700">GS, SEBANG,
-                                                    DONGNAI, VARTA, AMARON, ENIMAC, ROCKET, DELKOR...</span></p>
-                                            <p class="text-justify">
-                                                Là một chi nhánh thuộc <span class="font-semibold text-blue-700">Công ty TNHH TM-DV ắc quy Hòa
-                                                    Phát</span>
-                                                với 13 chi nhánh trải dài khắp tp
-                                                HCM, ắc quy Thủ Đức luôn đặt mục tiêu "chất lượng hàng đầu - giá cả phải chăng - dịch vụ hoàn
-                                                hảo"
-                                                nhằm
-                                                mang
-                                                lại quyền lợi tốt nhất cho khách hàng.
-                                            </p>
-                                            <p>Chúng tôi tin chắc rằng bạn sẽ hài lòng khi đến vớiắc quy Thủ Đức.</p>
-                                        </div>
-                                        <div class="flex justify-center">
-                                            <img class="w-4/5" src="{{ asset('client') }}/assets/images/aboutLogo.cc0c40b9.png" alt="">
-                                        </div> -->
                 </div>
             </div>
         </section>
@@ -88,7 +48,7 @@
         <section id="car-battery-container" class="max-w-[1500px] mx-auto mb-[3rem]">
             <div class="header-recommend-product shadow-md flex items-center justify-between mb-[2rem] h-16 px-8">
                 <p class="text-2xl font-bold text-white s-phone:!text-base laptop:text-xl tablet:text-xl">ẮC QUY Ô TÔ</p>
-                <div class="flex items-center s-phone:!hidden">
+                <div class="flex items-center">
                     <a href="{{ route('client.products', ['type' => '2']) }}"
                         class="text-[#895609] font-[600] laptop:text-base text-xl  tablet:text-lg mr-2">Xem tất cả</a>
                     <img src="{{ asset('client') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">
@@ -96,7 +56,7 @@
             </div>
             <div class="flex tablet:flex-col">
                 <div data-ui-tablist="ui-tabs"
-                    class="w-full max-w-[20.83%] tablet:mb-5 tablet:grid grid-cols-3 gap-4 tablet:object-contain tablet:max-w-full"
+                    class="w-full max-w-[20.83%] tablet:mb-5 tablet:grid s-phone:grid-cols-2 grid-cols-3 gap-4 tablet:object-contain tablet:max-w-full"
                     shown="category-1">
                     @foreach ($productsByPartners as $item)
                         <div data-ui-tablist-tab="{{ $item['partner_logo'] }}"
@@ -136,13 +96,13 @@
             </div>
         </section>
 
-        @foreach ($productsByCategory as $item)
+        @foreach ($productByType as $item)
             <section id="car-battery-container" class="max-w-[1500px] mx-auto mb-[3rem]">
                 <div class="header-recommend-product shadow-md flex items-center justify-between mb-[2rem] h-16 px-8">
                     <p class="text-2xl s-phone:!text-base font-bold text-white laptop:text-xl tablet:text-xl">
-                        {{ $item['category_name'] }}</p>
-                    <div class="flex items-center s-phone:!hidden">
-                        <a href="{{ route('client.products', ['category' => $item['slug']]) }}"
+                        {{ $item['type'] == 1 ? 'Ắc quy xe máy' : 'Phụ kiện ắc quy' }}</p>
+                    <div class="flex items-center">
+                        <a href="{{ route('client.products', ['type' => $item['type']]) }}"
                             class="text-[#895609] laptop:text-base tablet:text-lg font-[600] text-xl mr-2">Xem tất cả
                         </a>
                         <img src="{{ asset('client') }}/assets/images/icon-arrow.2dea5fd3.png" alt="">

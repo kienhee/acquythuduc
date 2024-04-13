@@ -12,10 +12,29 @@
                 @forelse ($productsByCategory as $item)
                     <section id="car-battery-container" class="max-w-[1500px] mx-auto mb-[3rem]">
 
-                        @if (request()->category ||request()->type)
-                            <div class="text-[#895609] text-xl font font-semibold pb-3">Sản phẩm / {{ request()->category ?? "Ắc quy ô tô" }}
+                        @if (request()->category)
+                            <div class="text-[#895609] text-xl font font-semibold pb-3">Sản phẩm /
+                                {{ request()->category }}
                             </div>
                             <hr class="mb-5 border-t-2">
+                        @elseif(request()->type)
+                            @php
+                                $productType = request()->type;
+                                $productName = '';
+                                switch ($productType) {
+                                    case 1:
+                                        $productName = 'Ắc quy xe máy';
+                                        break;
+                                    case 2:
+                                        $productName = 'Ắc quy ô tô';
+                                        break;
+                                    default:
+                                        $productName = 'Phụ kiện ắc quy';
+                                        break;
+                                }
+                            @endphp
+
+                            <div class="text-[#895609] text-xl font-semibold pb-3">Sản phẩm / {{ $productName }}</div>
                         @elseif (request()->search)
                             <div class="text-[#895609] text-xl font font-semibold pb-3">Tìm kiếm: "{{ request()->search }}"
                             </div>

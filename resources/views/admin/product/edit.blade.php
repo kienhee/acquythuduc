@@ -150,8 +150,9 @@
 
                         <label class="form-label" for="type">Dành cho:<span class="text-danger">*</span></label>
                         <select class="form-select" id="type" name="type">
-                            <option value="1" @if (old('type') == '1' || $product->type == '1') selected @endif>Xe máy</option>
-                            <option value="2" @if (old('type') == '2' || $product->type == '2') selected @endif>Ô tô</option>
+                            <option value="1" @if (old('type') == '1' || $product->type == '1') selected @endif>Ắc quy Xe máy</option>
+                            <option value="2" @if (old('type') == '2' || $product->type == '2') selected @endif>Ắc quy Ô tô</option>
+                            <option value="3" @if (old('type') == '3' || $product->type == '3') selected @endif>Phụ kiện ắc quy</option>
 
                         </select>
                         @error('type')

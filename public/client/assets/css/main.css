@@ -32,6 +32,7 @@ body {
   width: 100%;
   height: 100%;
 }
+
 /* Infinity Slider */
 
 @-webkit-keyframes scroll {
@@ -371,4 +372,20 @@ body {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
+}
+
+#about_img {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  #about_img {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #about_img {
+    display: none;
+  }
 }
