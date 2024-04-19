@@ -55,7 +55,6 @@ Route::prefix('/cms')->name('dashboard.')->middleware('auth')->group(function ()
         Route::get('/', [SliderController::class, 'index'])->name('index');
         Route::put('/edit/{id}', [SliderController::class, 'update'])->name('update');
     });
-
         Route::prefix('/partners')->name('partners.')->group(function () {
         Route::get('/', [PartnerController::class, 'index'])->name('index');
         Route::get('/add', [PartnerController::class, 'add'])->name('add');

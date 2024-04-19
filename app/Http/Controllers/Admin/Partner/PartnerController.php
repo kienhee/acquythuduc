@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+
 class PartnerController extends Controller
 {
     public function index()
@@ -23,6 +24,7 @@ class PartnerController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required|max:50|unique:partners,name',
+            'alias' => 'required|max:50|unique:partners,alias',
             'logo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
         if ($request->hasFile('logo')) {
@@ -52,6 +54,7 @@ class PartnerController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required|max:50|unique:partners,name,' . $id,
+            'alias' => 'required|max:50|unique:partners,alias,' . $id,
             'logo' => 'nullable',
         ]);
         if ($request->hasFile('logo')) {

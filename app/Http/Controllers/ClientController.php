@@ -46,53 +46,57 @@ class ClientController extends Controller
     }
     public function products(Request $request)
     {
-        $result = Category::query();
+
+
+        $productsArr = [];
+
         if ($request->has('category') && $request->category != null) {
-            $result->where('slug', 'like', '%' . $request->category . '%');
-        }
+            $result = Category::query();
+            if ($request->has('category') && $request->category != null) {
+                $result->where('slug', 'like', '%' . $request->category . '%');
+            }
 
-        $categories = $result->where('category_id', "<>", 0)->get();
-
-        $productsByCategory = [];
-        if ($request->has('type') && $request->type != null) {
-            $products = Product::where('type', $request->type)->limit(6)->orderBy('created_at', 'desc')->get()->toArray();
-            $productsByCategory[] = [
-                'category_name' => "Ắc quy ô tô",
-                'slug' => "",
-                'products' => $products
-            ];
-        } else {
+            $categories = $result->where('category_id', "<>", 0)->get();
             foreach ($categories as $category) {
                 $products = Product::where('category_id', $category->id)->limit(6)->orderBy('created_at', 'desc')->get()->toArray();
                 // count($products) >= 5 ->Khi nào cần thì cop vào
                 if (!empty($products)) {
-                    $productsByCategory[] = [
+                    $productsArr[] = [
                         'category_name' => $category->name,
                         'slug' => $category->slug,
                         'products' => $products
                     ];
                 }
             }
-        }
-
-        return view('client.product', compact('productsByCategory'));
-    }
-    public function category($slug)
-    {
-        $category = Category::where('slug', $slug)->first();
-
-        if ($category) {
-            $setting = Setting::where('id', 1)->first();
-            $products = Product::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate($setting->paginate_product);
-            if (!$products) {
-                abort(404);
-            }
-            $title = $category->name;
-            return view('client.product', compact('products', "title"));
+        } elseif ($request->has('type') && $request->type != null) {
+            $products = Product::where('type', $request->type)->limit(6)->orderBy('created_at', 'desc')->get()->toArray();
+            $productsArr[] = [
+                'slug' => "",
+                'products' => $products
+            ];
         } else {
-            abort(404);
+            $partnersQuery = Partner::query();
+            if ($request->has('partner') && $request->partner != null) {
+                $partnersQuery->where('id', $request->partner);
+            }
+            $partners = $partnersQuery->get();
+            foreach ($partners as $partner) {
+                $products = Product::where('partner_id', $partner->id)->limit(6)->orderBy('created_at', 'desc')->get()->toArray();
+                if (!empty($products)) {
+                    $productsArr[] = [
+                        'partner_name' => $partner->name,
+                        'id' => $partner->id,
+                        'products' => $products
+                    ];
+                }
+            }
         }
+
+
+
+        return view('client.product', compact('productsArr'));
     }
+
     public function search(Request $request)
     {
         $keywords = $request->keywords;

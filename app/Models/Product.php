@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class);
+    }
 }

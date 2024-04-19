@@ -44,7 +44,7 @@
                         </div>
                         <div class="px-6 py-3 phone:text-base laptop:text-lg tablet:text-lg text-[#8a4d04] text-xl flex">
                             <p class="w-5/12">Hãng sản xuất:</p>
-                            <p>{{ $product->producedBy }}</p>
+                            <p>{{ $product->partner->alias }}</p>
                         </div>
                         <div
                             class="px-6 py-3 phone:text-base laptop:text-lg tablet:text-lg bg-[#fff1b1] text-[#8a4d04] text-xl flex">

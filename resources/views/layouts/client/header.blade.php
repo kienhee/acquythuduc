@@ -83,14 +83,14 @@
                         @foreach ($menu as $item)
                             @if (url()->current() == route($item['route']))
                                 <li
-                                    class="page relative s-phone:!text-[12px] tablet:text-sm desktop:text-lg nav-item group cursor-pointer laptop:text-sm s-laptop:text-sm text-xl font-semibold text-[#895609] mx-0 m-0 duration-200 nav-normal">
+                                    class="page relative s-phone:!text-[12px] tablet:text-sm desktop:text-lg nav-item group cursor-pointer laptop:text-sm s-laptop:text-sm text-xl uppercase font-semibold text-[#895609] mx-0 m-0 duration-200 nav-normal">
 
-                                    <a class="block" href="{{ route($item['route']) }}">{{ $item['name'] }}</a>
+                                    <a class="block uppercase" href="{{ route($item['route']) }}">{{ $item['name'] }}</a>
                                 </li>
                             @else
                                 <li
-                                    class="page s-phone:!text-[12px] relative tablet:text-sm desktop:text-lg nav-item group cursor-pointer s-laptop:text-sm laptop:text-sm text-xl font-semibold text-white mx-0 m-0 duration-200 nav-normal">
-                                    <a class="block" href="{{ route($item['route']) }}">{{ $item['name'] }}</a>
+                                    class="page s-phone:!text-[12px] relative tablet:text-sm desktop:text-lg nav-item group cursor-pointer s-laptop:text-sm laptop:text-sm text-xl uppercase font-semibold text-white mx-0 m-0 duration-200 nav-normal">
+                                    <a class="block uppercase" href="{{ route($item['route']) }}">{{ $item['name'] }}</a>
                                     <div
                                         class="w-0 group-hover:w-[80%] h-[3px] absolute bottom-0 transform left-1/2 -translate-x-1/2 bg-white ease-in-out duration-150 -mb-1">
                                     </div>

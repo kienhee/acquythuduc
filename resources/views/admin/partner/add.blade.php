@@ -36,6 +36,14 @@
                                     <p class="text-danger my-1">{{ $message }}</p>
                                 @enderror
                             </div>
+                            <div class="mb-3 col-md-12">
+                                <label for="alias" class="form-label">Bí danh:</label>
+                                <input class="form-control @error('alias') is-invalid @enderror" type="text"
+                                    id="alias" name="alias" value="{{ old('alias') }}"  />
+                                @error('alias')
+                                    <p class="text-danger my-1">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
                         <div class="mt-2">
                             <button type="submit" class="btn btn-primary me-2">Add New Partner</button>

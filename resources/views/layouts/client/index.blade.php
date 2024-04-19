@@ -66,18 +66,18 @@
 
         <div id="socials"
             class="  bottom-[120%]  h-[200px] transition-all duration-200 ease-in overflow-hidden flex flex-col justify-between w-14 rounded-[500px] px-2 py-4">
-            <div
+            <a href="https://zalo.me/{{ setting()->zalo }}" target="_blank"
                 class="cursor-pointer border-[1px] border-transparent hover:border-[#ccc] rounded-[100%] overflow-hidden">
                 <img class="block" src="{{ asset('client') }}/assets/images/Icon_of_Zalo.svg.png" alt="">
-            </div>
-            <div
+            </a>
+            <a href="{{ setting()->message }}" target="_blank"
                 class="cursor-pointer border-[1px] border-transparent hover:border-[#ccc] rounded-[100%] overflow-hidden">
                 <img class="block" src="{{ asset('client') }}/assets/images/messenger.jpeg" alt="">
-            </div>
-            <div
+            </a>
+            <a href="tel:{{ setting()->phone_main }}" target="_blank"
                 class="cursor-pointer border-[1px] border-transparent hover:border-[#ccc] rounded-[100%] overflow-hidden">
                 <img src="{{ asset('client') }}/assets/images/phone-icon.png" alt="">
-            </div>
+            </a>
         </div>
     </div>
     <!-- social -->

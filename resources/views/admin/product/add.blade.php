@@ -65,16 +65,7 @@
                             <p class="text-danger my-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-4">
-                        <label class="form-label" for="producedBy">Hãng sản xuất:<span class="text-danger">*</span></label>
-                        <div class="d-flex gap-2">
-                            <input type="text" class="form-control" id="producedBy" name="producedBy"
-                                value="{{ old('producedBy') }}" />
-                        </div>
-                        @error('producedBy')
-                            <p class="text-danger my-1">{{ $message }}</p>
-                        @enderror
-                    </div>
+                
                     <div class="mb-3 col-md-4">
                         <label class="form-label" for="Origin">Xuất xứ:<span class="text-danger">*</span></label>
                         <div class="d-flex gap-2">

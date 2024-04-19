@@ -9,12 +9,11 @@
         <div class="flex tablet:block tablet:px-2 max-w-[1500px] laptop:gap-5 mx-auto gap-9">
             <div class="flex-1">
                 <!-- Recommend Products: Ắc quy oto -->
-                @forelse ($productsByCategory as $item)
+                @forelse ($productsArr as $item)
                     <section id="car-battery-container" class="max-w-[1500px] mx-auto mb-[3rem]">
-
                         @if (request()->category)
                             <div class="text-[#895609] text-xl font font-semibold pb-3">Sản phẩm /
-                                {{ request()->category }}
+                                {{ $item['category_name'] }}
                             </div>
                             <hr class="mb-5 border-t-2">
                         @elseif(request()->type)
@@ -39,13 +38,20 @@
                             <div class="text-[#895609] text-xl font font-semibold pb-3">Tìm kiếm: "{{ request()->search }}"
                             </div>
                             <hr class="mb-5 border-t-2">
+                        @elseif (request()->partner)
+                            <div
+                                class="header-recommend-product shadow-md flex items-center justify-between mb-[2rem] h-16 px-8">
+                                <p class="text-2xl s-phone:!text-base font-bold text-white laptop:text-xl tablet:text-xl">
+                                    {{ $item['partner_name'] }}</p>
+
+                            </div>
                         @else
                             <div
                                 class="header-recommend-product shadow-md flex items-center justify-between mb-[2rem] h-16 px-8">
                                 <p class="text-2xl s-phone:!text-base font-bold text-white laptop:text-xl tablet:text-xl">
-                                    {{ $item['category_name'] }}</p>
+                                    {{ $item['partner_name'] }}</p>
                                 <div class="flex items-center s-phone:!hidden">
-                                    <a href="{{ route('client.products', ['category' => $item['slug']]) }}"
+                                    <a href="{{ route('client.products', ['partner' => $item['id']]) }}"
                                         class="text-[#895609] laptop:text-base tablet:text-lg font-[600] text-xl mr-2">Xem
                                         tất cả
                                     </a>

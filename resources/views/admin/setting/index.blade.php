@@ -57,7 +57,37 @@
                         @enderror
                     </div>
                 </div>
-                 
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="zalo">Zalo<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="zalo" name="zalo"
+                            value="{{ old('zalo') ?? $setting->zalo }}" placeholder="Vui lòng viết liền mạch">
+                        @error('zalo')
+                            <p class="text-danger my-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="message">Facebook<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="message" name="message"
+                            placeholder="Đường link trang cá nhân" value="{{ old('message') ?? $setting->message }}">
+                        @error('message')
+                            <p class="text-danger my-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="phone_main">Điện thoại chính<span
+                            class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="phone_main" name="phone_main"
+                            placeholder="Vui lòng viết liền mạch" value="{{ old('phone_main') ?? $setting->phone_main }}">
+                        @error('phone_main')
+                            <p class="text-danger my-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
             </div>
             <hr>
             <div class="card-header d-flex align-items-center justify-content-between">
@@ -72,13 +102,13 @@
                 </div>
             </div>
             <hr>
-           
-                      <div class="card-header d-flex align-items-center justify-content-between">
+
+            <div class="card-header d-flex align-items-center justify-content-between">
                 <h5 class="mb-0">Về chúng tôi<span class="text-danger">*</span></h5>
             </div>
             <div class="card-body">
                 <div class="mb-3">
-                     <div class="mb-5">
+                    <div class="mb-5">
                         <textarea id="content" class="form-control" name="about" placeholder="Nội dung bài viết">{{ old('about') ?? $setting->about }}</textarea>
                         @error('about')
                             <p class="text-danger my-1">{{ $message }}</p>
@@ -87,28 +117,28 @@
                 </div>
             </div>
             <hr>
-           
-                      <div class="card-header d-flex align-items-center justify-content-between">
+
+            <div class="card-header d-flex align-items-center justify-content-between">
                 <h5 class="mb-0">Hình ảnh<span class="text-danger">*</span></h5>
             </div>
             <div class="card-body">
                 <div class="mb-3">
-                      <div class="d-flex flex-column align-items-center justify-content-center gap-4 mb-3">
-                    <img src="{{ $setting->image }}" alt="Cover"
-                        class="rounded cover-img-post img-fluid " id="uploadedAvatar" />
-                    <div class="button-wrapper text-center">
-                        <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                            <span class="d-none d-sm-block">Tải ảnh lên</span>
-                            <i class="bx bx-upload d-block d-sm-none"></i>
-                            <input type="file" id="upload" class="account-file-input" hidden name="image"
-                                accept="image/png, image/jpeg" />
-                            <input type="hidden" name="image" value="{{ $setting->image }}">
-                        </label>
+                    <div class="d-flex flex-column align-items-center justify-content-center gap-4 mb-3">
+                        <img src="{{ $setting->image }}" alt="Cover" class="rounded cover-img-post img-fluid "
+                            id="uploadedAvatar" />
+                        <div class="button-wrapper text-center">
+                            <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                <span class="d-none d-sm-block">Tải ảnh lên</span>
+                                <i class="bx bx-upload d-block d-sm-none"></i>
+                                <input type="file" id="upload" class="account-file-input" hidden name="image"
+                                    accept="image/png, image/jpeg" />
+                                <input type="hidden" name="image" value="{{ $setting->image }}">
+                            </label>
+                        </div>
+                        @error('image')
+                            <p class="text-danger my-1">{{ $message }}</p>
+                        @enderror
                     </div>
-                    @error('image')
-                        <p class="text-danger my-1">{{ $message }}</p>
-                    @enderror
-                </div>
                 </div>
             </div>
         </div>
@@ -118,7 +148,7 @@
         </div>
     </form>
 
-<script>
+    <script>
         let imgInp = document.getElementById('upload');
         let preview = document.getElementById('uploadedAvatar');
         imgInp.onchange = evt => {
