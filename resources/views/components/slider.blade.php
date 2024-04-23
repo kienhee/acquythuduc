@@ -1,18 +1,27 @@
-<section id="slider-container" class="swiper mySwiper mb-[3rem]">
-    <div id="slider" class="swiper-wrapper">
-        {{-- @if (getSliders())
+<section class="mb-10">
+    <div id="slider-main">
+        @if (getSliders())
             @foreach (explode(',', getSliders()->images) as $key => $image)
-                <div class="swiper-slide">
-                    <img class="w-full h-full" src="{{ $image }}" alt="aaaa" />
+                <div>
+                    <img class="w-full phone:h-72  s-phone:h-72 object-cover" src="{{ $image }}"
+                        alt="aaaa" />
                 </div>
             @endforeach
-        @endif --}}
-        <div class="swiper-slide">
-            <img class="w-full h-full" src="https://www.acquythuduc.vn/_next/static/media/banner_1.c41ce791.png" alt="aaaa" />
-        </div>
-        <div class="swiper-slide">
-            <img class="w-full h-full" src="https://www.acquythuduc.vn/_next/static/media/banner_2.b9dca191.png" alt="aaaa" />
-        </div>
+        @endif
     </div>
     <div class="swiper-pagination"></div>
 </section>
+@section('script-slider')
+    <script>
+        $('#slider-main').slick({
+            slidesToShow: 1, // Hiển thị số lượng slide
+            slidesToScroll: 1, // Di chuyển bao nhiêu slide mỗi lần
+            autoplay: true, // Tự động chạy slider
+            autoplaySpeed: 3000, // Đặt tốc độ tự động chạy là 0 để chạy như marquee
+            speed: 300, // Tốc độ di chuyển của slider
+            infinite: true, // Chạy vô hạn
+            arrows: false,
+            dots: false,
+        });
+    </script>
+@endsection

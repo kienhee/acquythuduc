@@ -6,14 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> @yield('title')</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('client') }}/assets/images/favicon.png">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
     <link rel="stylesheet" href="{{ asset('client') }}/assets/css/main.css">
-    <!-- <link rel="preload" href="https://maps.gstatic.com/maps-api-v3/embed/js/56/4/intl/vi_ALL/init_embed.js" -->
-    <!-- nonce="p63S8D8MTBW__TbE7-z6-Q" as="script" /> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    @yield('css')
     <script>
         tailwind.config = {
             theme: {
@@ -81,13 +78,12 @@
         </div>
     </div>
     <!-- social -->
+    @yield('script')
+    @yield('script-slider')
     <script type="module" src="{{ asset('client') }}/script/Header.js"></script>
-    <script type="module" src="{{ asset('client') }}/script/infiniteSlider.js"></script>
     <script type="module" src="{{ asset('client') }}/script/tabs.js"></script>
     <script src="{{ asset('client') }}/script/product.js"></script>
     <script type="module" src="{{ asset('client') }}/script/collapse.js"></script>
-    <!-- <script type="text/tailwindcss" src="tailwind.config.js"></script> -->
-
     <script>
         function goHome() {
             window.location.href = "/"

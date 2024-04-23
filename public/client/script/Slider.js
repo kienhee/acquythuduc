@@ -1,11 +1,15 @@
 var swiper = new Swiper(".mySwiper", {
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + ' inline-block">' + "</span>";
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + ' inline-block">' + "</span>";
+        },
     },
-  },
+    autoplay: {
+        delay: 5000, // Thời gian chờ giữa các slide (đơn vị: milliseconds)
+        disableOnInteraction: false, // Tắt autoplay khi người dùng tương tác với swiper
+    },
 });
 // const images = [
 //   { src: '/src/assets/images/banner_1.c41ce791.png' },
@@ -30,4 +34,3 @@ var swiper = new Swiper(".mySwiper", {
 // }
 
 // renderSlileItems();
-

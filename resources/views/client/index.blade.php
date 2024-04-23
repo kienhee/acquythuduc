@@ -1,6 +1,11 @@
 @extends('layouts.client.index')
 @section('title', 'Trang chủ')
+@section('css')
+    <!-- Link CSS từ CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
 
+@endsection
 @section('content')
     <!-- Slider -->
     <x-slider />
@@ -159,11 +164,13 @@
         </section>
     @endforeach
     <!-- Hình ảnh -->
-    <section class="">
+    <section class="max-w-[1500px] mx-auto mb-[3rem]">
 
         <div class="flex items-center justify-center w-3/4 gap-2 mx-auto mb-10 desktop:w-3/4 tablet:w-full">
             <img class="w-2/5" src="{{ asset('client') }}/assets/images/img-title.32428066.png" alt="">
-            <p class="text-[24px] laptop:text-xl text-[#8a4d04] text-center font-bold tablet:text-lg">HÌNH ẢNH</p>
+            <p
+                class="text-[24px] s-phone:!text-xs laptop:text-sm desktop:text-lg tablet:text-sm text-[#8a4d04] text-center font-bold">
+                HÌNH ẢNH</p>
             <img class="w-2/5" src="{{ asset('client') }}/assets/images/img-title.32428066.png" alt="">
         </div>
 
@@ -176,4 +183,48 @@
     <!-- Đối tác -->
     <x-Partners />
     <!-- Đối tác -->
+
+@endsection
+@section('script')
+    <!-- Link JS từ CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#partners').slick({
+                slidesToShow: 4, // Hiển thị số lượng slide
+                slidesToScroll: 1, // Di chuyển bao nhiêu slide mỗi lần
+                autoplay: true, // Tự động chạy slider
+                autoplaySpeed: 0, // Đặt tốc độ tự động chạy là 0 để chạy như marquee
+                speed: 5000, // Tốc độ di chuyển của slider
+                cssEase: 'linear', // Hiệu ứng di chuyển tuyến tính
+                infinite: true, // Chạy vô hạn
+                arrows: false,
+                dots: false,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            })
+        });
+    </script>
 @endsection
