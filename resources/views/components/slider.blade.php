@@ -3,7 +3,7 @@
         @if (getSliders())
             @foreach (explode(',', getSliders()->images) as $key => $image)
                 <div>
-                    <img class="w-full phone:h-72  s-phone:h-72 object-cover" src="{{ $image }}"
+                    <img class="w-full h-auto object-cover" src="{{ $image }}"
                         alt="aaaa" />
                 </div>
             @endforeach
